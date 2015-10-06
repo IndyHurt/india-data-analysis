@@ -1,4 +1,4 @@
- -- Road length for new roads and edits to existing roads
+﻿ -- Road length for new roads and edits to existing roads
 
 SELECT sum(ST_Length(way))/1000 AS km_new_roads FROM planet_osm_line where highway in ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'residential', 'residential_link', 'service', 'tertiary', 'tertiary_link', 'road', 'track', 'unclassified', 'living_street') and osm_version = '1' and osm_id > 0;
 
@@ -88,12 +88,17 @@ select planet_osm_polygon.osm_id, (ST_LENGTH(ST_Intersection(planet_osm_polygon.
 from planet_osm_polygon, planet_osm_line 
 where ST_Intersects(planet_osm_polygon.way, planet_osm_line.way) and planet_osm_polygon.building is not null and planet_osm_polygon.building != 'no' and planet_osm_polygon.osm_id > 0 and planet_osm_line.highway in ('tertiary', 'tertiary_link') and planet_osm_line.osm_id > 0;
 
--- Length of unclassified, residential, and service roads intersected by buildings
+-- Length of residential, and service roads intersected by buildings
 
 select planet_osm_polygon.osm_id, (ST_LENGTH(ST_Intersection(planet_osm_polygon.way, planet_osm_line.way))/1000) 
 from planet_osm_polygon, planet_osm_line 
-where ST_Intersects(planet_osm_polygon.way, planet_osm_line.way) and planet_osm_polygon.building is not null and planet_osm_polygon.building != 'no' and planet_osm_polygon.osm_id > 0 and planet_osm_line.highway in ('unclassified', 'residential', 'residential_link', 'service') and planet_osm_line.osm_id > 0;
+where ST_Intersects(planet_osm_polygon.way, planet_osm_line.way) and planet_osm_polygon.building is not null and planet_osm_polygon.building != 'no' and planet_osm_polygon.osm_id > 0 and planet_osm_line.highway in ('residential', 'residential_link', 'service') and planet_osm_line.osm_id > 0;
 
+-- Length of unclassified roads intersected by buildings
+
+select planet_osm_polygon.osm_id, (ST_LENGTH(ST_Intersection(planet_osm_polygon.way, planet_osm_line.way))/1000) 
+from planet_osm_polygon, planet_osm_line 
+where ST_Intersects(planet_osm_polygon.way, planet_osm_line.way) and planet_osm_polygon.building is not null and planet_osm_polygon.building != 'no' and planet_osm_polygon.osm_id > 0 and planet_osm_line.highway in ('unclassified') and planet_osm_line.osm_id > 0;
 
 -- Subset of POIs expected to be included in Mapzen tiles (written by Nathaniel, not me, hence the extra fancyness)
 

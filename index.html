@@ -494,7 +494,8 @@
         ['Primary', 0, 0, 0, 0, .02, .28, 0, .3],
         ['Secondary', 0, 0, 0, 0, .02, 0, .6, .49],
         ['Tertiary', 0, 0, .01, .01, .01, .03, .15, .47],
-        ['Unclassified, Residential, Service', 0, 0, .11, .13, 1.95, 2.82, 4.64, 4.60]
+        ['Residential or Service', 0, 0, 0.11, 0.13, 1.95, 2.74, 4.20, 3.74],
+        ['Unclassified', 0, 0, 0, 0, 0, 0.08, 0.44, 0.87]
           ]);
 
             var options = {
@@ -530,7 +531,8 @@
         ['Primary', 0, 0, 0, .26, .26, 0, 1.56, 0],
         ['Secondary', 0, 0, 0, .32, .66, 1.11, 1.75, 1.35],
         ['Tertiary', 0, 0, .37, .36, .35, .28, 1.36, .23],
-        ['Unclassified, Residential or Service', 0, 0, .76, .86, .92, 1.95, 13.83, 2.97]
+        ['Residential or Service', 0, 0, 0.76, 0.80, 0.86, 1.95, 12.78, 2.83],
+        ['Unclassified', 0, 0, 0, 0.06, 0.06, 0, 1.05, 0.15]
           ]);
 
             var options = {
@@ -566,7 +568,8 @@
         ['Primary', 0, 0, 0, .05, .04, 0, .05, .05],
         ['Secondary', 0, 0, .01, 0, 0, 0, .11, .26],
         ['Tertiary', 0, 0, 0, 0, .03, 0, 0, .25], 
-        ['Unclassified, Residential or Service', 0, 0, .23, .62, .58, .76, .79, .86]
+        ['Residential or Service', 0, 0, 0.08, 0.50, 0.52, 0.69, 0.69, 0.80],
+        ['Unclassified', 0, 0, 0.15, 0.11, 0.06, 0.07, 0.10, 0.06]
           ]);
 
             var options = {
@@ -745,7 +748,7 @@
 
 <p>Techniques to assess data quality of OpenStreetMap data have been conducted by several researchers in recent years.  Analysis of the road network is common, but others have focused on other features like buildings [<a href="#r1">1</a>].  While several [2-6] measure characteristics of OpenStreetMap data against authoritative sources, others take a community approach by evaluating the community of editors [7-9].</p>
 
-<p>Complementing the various OpenStreetMap research efforts that have been published in peer reviewed journals, code repositories featuring OpenStreetMap data analysis tools are available from a number of contributors.  In this space, find iOSMAnalyzer: a python tool to generate data quality reports utilizing Osmium, OSM-History-Splitter, OSM-History-Render/Importer, and MatplotLib.  Find also nearly two dozen OpenStreetMap data quality checking Perl scripts written by Gerhard Gary68</p>
+<p>Complementing the various OpenStreetMap research efforts that have been published in peer reviewed journals, code repositories featuring OpenStreetMap data analysis tools are available from a number of contributors.  In this space, find <a href="https://github.com/zehpunktbarron/iOSMAnalyzer">iOSMAnalyzer</a>: a python tool to generate data quality reports utilizing <a href="https://github.com/joto/osmium">Osmium</a>, <a href="https://github.com/MaZderMind/osm-history-splitter">OSM-History-Splitter</a>, <a href="https://github.com/MaZderMind/osm-history-renderer">OSM-History-Render/Importer</a>, and <a href="http://matplotlib.org">MatplotLib</a> for visualizing statistics, just to name a few.  Find also nearly two dozen OpenStreetMap data quality checks, written in Perl by <a href="http://wiki.openstreetmap.org/wiki/User:Gary68">Gerhard Gary68</a>, <a href="http://keepright.at">Keep Right</a> for visualizing programatically detected errors, <a href="http://osmose.openstreetmap.fr/en/map/">Osmose</a> for programatic detection and errors and facilitating edits, <a href="http://maproulette.org">MapRoulette</a> built around challenges to fix themes of programattically detected errors, and many others.</p>
 
 <h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community and Quality</h3>
