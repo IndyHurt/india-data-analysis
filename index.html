@@ -274,6 +274,317 @@
     </script>
 
     <script type="text/javascript">
+      google.setOnLoadCallback(drawChartBuildingCount);
+
+      function drawChartBuildingCount() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  0, 0, 0],
+          ['2008',  59, 4, 11],
+          ['2009',  215, 191, 270],
+          ['2010',  553, 337, 1363],
+          ['2011',  1549, 1019, 2928],
+          ['2012',  2525, 2055, 2620],
+          ['2013',  3157, 2244, 3317],
+          ['2014',  4541, 2839, 3748]
+        ]);
+
+        var options = {
+          title: 'Buildings Accumulating Over Time',
+          curveType: 'function',
+          hAxis: {title: 'Year'},
+          vAxis: { viewWindow: { min: 0}, title: 'Count of Buildings'},
+          lineWidth: 6,
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          legend: { position: 'bottom' }
+        };
+
+        var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter1.format(data, 1);
+        var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter2.format(data, 2);
+        var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter3.format(data, 3);
+        
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartBuildingCount'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationBBuildings);
+
+      function drawVisualizationBBuildings() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Buildings w/o Addresses', 'Buildings w/ Addresses', 'Total Area of Buildings'],
+         ['2007', 0, 0, 0],
+         ['2008',  59, 0, 257],
+         ['2009',  215, 0, 612],
+         ['2010',  535, 18, 2168],
+         ['2011',  1353, 196, 6904],
+         ['2012', 2190, 335, 7578],
+         ['2013', 2609, 548, 7963],
+         ['2014', 3846, 695, 8479]
+      ]);
+
+      var options = {
+          title : 'Bengaluru Buildings: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Buildings'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Area'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom'}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divbb'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationDBuildings);
+
+      function drawVisualizationDBuildings() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Buildings w/o Addresses', 'Buildings w/ Addresses', 'Total Area of Buildings'],
+         ['2007', 0, 0, 0],
+         ['2008',  4,0,14],
+         ['2009',  89,102,2012],
+         ['2010',  226,111,3571],
+         ['2011',  875,144,4949],
+         ['2012', 1857,198,6756],
+         ['2013', 2013,231,8454],
+         ['2014', 2484,355,7129]
+      ]);
+
+      var options = {
+          title : 'Delhi Buildings: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Buildings'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Area'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom'}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divdb'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationMBuildings);
+
+      function drawVisualizationMBuildings() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Buildings w/o Addresses', 'Buildings w/ Addresses', 'Total Area of Buildings'],
+         ['2007', 0, 0, 0],
+         ['2008',  11,0,96],
+         ['2009',  261,9,381],
+         ['2010',  1352,11,1162],
+         ['2011',  2727,201,2211],
+         ['2012', 2414,206,2501],
+         ['2013', 3098,219,3413],
+         ['2014', 3463,285,3751]
+      ]);
+
+      var options = {
+          title : 'Mumbai Buildings: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Buildings'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Area'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom'}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divmb'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChartBRoadIntersections);
+
+      function drawChartBRoadIntersections() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  0, 0, 0],
+          ['2008',  0, 0, 0],
+          ['2009',  .12, 1.17, .24],
+          ['2010',  .14, 1.85, 1.01],
+          ['2011',  2.16, 3.79, 1.02],
+          ['2012',  3.63, 4.19, 1.13],
+          ['2013',  6.47, 19.31, 1.39],
+          ['2014',  7.08, 5.30, 1.93]
+        ]);
+
+        var options = {
+          title: 'Km of Roads Intersected by Buildings Over Time',
+          curveType: 'function',
+          hAxis: {title: 'Year'},
+          vAxis: { viewWindow: { min: 0}, title: 'Accumulating Kilometers'},
+          lineWidth: 6,
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          legend: { position: 'bottom' }
+        };
+        
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartBRoadIntersections'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChartbrti);
+        function drawChartbrti() {
+
+            var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Road Type');
+          data.addColumn('number', '2007');
+          data.addColumn('number', '2008');
+          data.addColumn('number', '2009');
+          data.addColumn('number', '2010');
+          data.addColumn('number', '2011');
+          data.addColumn('number', '2012');
+          data.addColumn('number', '2013');
+          data.addColumn('number', '2014');
+          data.addRows([
+        ['Primary', 0, 0, 0, 0, .02, .28, 0, .3],
+        ['Secondary', 0, 0, 0, 0, .02, 0, .6, .49],
+        ['Tertiary', 0, 0, .01, .01, .01, .03, .15, .47],
+        ['Unclassified, Residential, Service', 0, 0, .11, .13, 1.95, 2.82, 4.64, 4.60]
+          ]);
+
+            var options = {
+                title: 'Bengaluru Road Types, Intersected by Buildings: 2007 - 2014',
+                vAxis: {title: 'Kilometers'},
+                hAxis: {title: 'Type of Road'},
+            isStacked: true,
+            colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_divbrti'));
+
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChartdrti);
+        function drawChartdrti() {
+
+            var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Road Type');
+          data.addColumn('number', '2007');
+          data.addColumn('number', '2008');
+          data.addColumn('number', '2009');
+          data.addColumn('number', '2010');
+          data.addColumn('number', '2011');
+          data.addColumn('number', '2012');
+          data.addColumn('number', '2013');
+          data.addColumn('number', '2014');
+          data.addRows([
+        ['Primary', 0, 0, 0, .26, .26, 0, 1.56, 0],
+        ['Secondary', 0, 0, 0, .32, .66, 1.11, 1.75, 1.35],
+        ['Tertiary', 0, 0, .37, .36, .35, .28, 1.36, .23],
+        ['Unclassified, Residential or Service', 0, 0, .76, .86, .92, 1.95, 13.83, 2.97]
+          ]);
+
+            var options = {
+                title: 'Delhi Road Types, Intersected by Buildings: 2007 - 2014',
+                vAxis: {title: 'Kilometers'},
+                hAxis: {title: 'Type of Road'},
+            isStacked: true,
+            colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_divdrti'));
+
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChartmrti);
+        function drawChartmrti() {
+
+            var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Road Type');
+          data.addColumn('number', '2007');
+          data.addColumn('number', '2008');
+          data.addColumn('number', '2009');
+          data.addColumn('number', '2010');
+          data.addColumn('number', '2011');
+          data.addColumn('number', '2012');
+          data.addColumn('number', '2013');
+          data.addColumn('number', '2014');
+          data.addRows([
+        ['Primary', 0, 0, 0, .05, .04, 0, .05, .05],
+        ['Secondary', 0, 0, .01, 0, 0, 0, .11, .26],
+        ['Tertiary', 0, 0, 0, 0, .03, 0, 0, .25], 
+        ['Unclassified, Residential or Service', 0, 0, .23, .62, .58, .76, .79, .86]
+          ]);
+
+            var options = {
+                title: 'Mumbai Road Types, Intersected by Buildings: 2007 - 2014',
+                vAxis: {title: 'Kilometers'},
+                hAxis: {title: 'Type of Road'},
+            isStacked: true,
+            colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_divmrti'));
+
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <script type="text/javascript">
         google.setOnLoadCallback(drawChart);
         function drawChart() {
 
@@ -303,7 +614,7 @@
 	        ]);
 
             var options = {
-                title: 'Cumulation of POI Tags Edited in Bengaluru',
+                title: 'Bengaluru Edits to POI Tags: 2007 - 2014',
                 vAxis: {title: 'Accumulated POI Tags'},
 		        isStacked: true,
 		        colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
@@ -350,7 +661,7 @@
 			
 
             var options = {
-                title: 'Cumulation of POI Tags Edited in Delhi',
+                title: 'Delhi Edits to POI Tags: 2007 - 2014',
                 vAxis: {title: 'Accumulated POI Tags'},
 		        isStacked: true,
 		        colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
@@ -397,7 +708,7 @@
 			
 
             var options = {
-                title: 'Cumulation of POI Tags Edited in Mumbai',
+                title: 'Mumbai Edits to POI Tags: 2007 - 2014',
                 vAxis: {title: 'Accumulated POI Tags'},
 		        isStacked: true,
 		        colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
@@ -476,7 +787,37 @@
 
 <div id="chart_divmrs" style="width: 900px; height: 500px;"></div>
 
-<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L13-L19">example query</a> for the segments added to this chart.</p>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L13-L19">example query</a> for the segments added to these charts.</p>
+
+<p>Taking a look at buildings, it was a slow start for all three cities until 2009 when things start to pick up steam.  Interestingly, Mumbai has a noticiable dip in 2012, while upward momentum skips a beat for Bengaluru and Delhi that year, too.  Licence changes are at work here.</p>
+
+<div id="curve_chartBuildingCount" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L33">example query</a> for this chart.</p>
+
+<p>In additional to overall coverage, there are a number of tags that add value to buildings.  Examples include names, address information, type, and height.  The charts below brake down the distribution of buildings with and without address information along with the total area.  The address information comes from two sources: tags on the buildings, and points with address tags that intersected the buildings.  In all cases, there are very few full addresses.  The query built to extract this information was very generous and tallied anything with any address field populated.</p>
+
+<div id="chart_divbb" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divdb" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divmb" style="width: 900px; height: 500px;"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L35-L45">example query</a> for these charts.</p>
+
+<p>A true analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.  Without ground truth expeditions, we can look to topological relationships for some errors.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road is likely in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception Icabod Crane would appreciate, but these aren't a common occurance in India.</p>
+
+<p>Query results reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Delhi seems to be approaching a level of concern and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.</p>
+
+<div id="curve_chartBRoadIntersections" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L69-L71">example query</a> for this chart.</p>  
+
+<p>Are the remaining intersections equally problematic?  It depends entirely on the mapping application, and a break down of intersections by type can be used to evaluate the severity of the remaining errors.  In the case of these three cities, the primary and secondary roads are fairly clear of intersections with buildings.  The bulk of the issues occur in the unclassified, residential, and service roads.</p>
+
+<div id="chart_divbrti" style="width: 900px; height: 500px"></div>
+
+<div id="chart_divdrti" style="width: 900px; height: 500px"></div>
+
+<div id="chart_divmrti" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L73-L95">example query</a> for these charts.</p>
 
 
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
@@ -485,7 +826,7 @@
 
 <div id="chart_div3" style="width: 900px; height: 500px;"></div>
 
-<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L140-L155">example query</a> for this chart.</p>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L140-L155">example query</a> for these charts.</p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
