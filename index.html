@@ -1831,7 +1831,7 @@
 </TABLE>
 <p>The data was then imported into a postgres database using OSM2PGSQL using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of OSM2PGSQL's "extra attributes" option.</p>
 
-<p>With everything involved, it's a lot to install and configure.  To make things easier, Matt Amos put together a virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.</p>
+<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, Matt Amos put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.</p>
 
 <h4>
 <a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
