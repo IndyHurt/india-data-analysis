@@ -1778,29 +1778,32 @@
 
     <section class="main-content">
       <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Quality 101</h3>
+<a id="dataquality101" class="anchor" href="#dataquality101" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Quality 101</h3>
 
 <p> When measuring data quality, what exactly does that mean?  One may try to formulate quantitative measures that identify a data set as superior by comparison, complete, accurate, consistent, and current.  Additional measurement may focus on documentation, and source evaluation with respect to the reputation or authoritative nature of the data provider. </p>
 
 <p>	The original purpose of data collection and the original scale at which it was collected may also have bearing on the utility of the data for purposes beyond it's original intent.  With this in mind, data quality may be measured with specific use cases in mind.  For spatial data, a few examples include routing, search, and cartographic rendering. </p>
 
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluating OpenStreetMap Data Quality</h3>
+<a id="evaluateOSM" class="anchor" href="#evaluateOSM" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluating OpenStreetMap Data Quality</h3>
 
 <p>Techniques to assess data quality of OpenStreetMap data have been conducted by several researchers in recent years.  Analysis of the road network is common, but others have focused on other features like buildings [<a href="#r1">1</a>].  While several [<a href="#r2">2-6</a>] measure characteristics of OpenStreetMap data against authoritative sources, others take a community approach by evaluating the community of editors [<a href="#r7">7-9</a>].</p>
 
 <p>Complementing the various OpenStreetMap research efforts that have been published in peer reviewed journals, code repositories featuring OpenStreetMap data analysis tools are available from a number of contributors.  In this space, find <a href="https://github.com/zehpunktbarron/iOSMAnalyzer">iOSMAnalyzer</a>: a python tool to generate data quality reports utilizing <a href="https://github.com/joto/osmium">Osmium</a>, <a href="https://github.com/MaZderMind/osm-history-splitter">OSM-History-Splitter</a>, <a href="https://github.com/MaZderMind/osm-history-renderer">OSM-History-Render/Importer</a>, and <a href="http://matplotlib.org">MatplotLib</a> for visualizing statistics, just to name a few.  Find also nearly two dozen OpenStreetMap data quality checks, written in Perl by <a href="http://wiki.openstreetmap.org/wiki/User:Gary68">Gerhard Gary68</a>, <a href="http://keepright.at">Keep Right</a> for visualizing programatically detected errors, <a href="http://osmose.openstreetmap.fr/en/map/">Osmose</a> for programatic detection and errors and facilitating edits, <a href="http://maproulette.org">MapRoulette</a> built around challenges to fix themes of programattically detected errors, and many others.</p>
 
 <h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community and Quality</h3>
+<a id="community" class="anchor" href="#community" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community and Quality</h3>
 
-<p>The relationship between community and quality is fascinating.  OpenStreetMap data quality clearly benefits from an extensive community of editors.  It is easy to imagine why this might be the case.  More contributors leads to more content, and faster corrections when errors arise, including examples of vandalism like the introduction of fictional data or deletion of existing data [<a href="#r10">10</a>].</p>  
+<p>The relationship between community and quality is fascinating.  OpenStreetMap data quality clearly benefits from an extensive community of editors.  It is easy to imagine why this might be the case.  More contributors leads to more content, and faster corrections when errors arise, including examples of vandalism like the introduction of <a href="https://lists.openstreetmap.org/pipermail/talk-us/2015-September/015321.html">fictional data</a> or deletion of existing data [<a href="#r10">10</a>].</p>  
 
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characteristics of Bengaluru, Delhi, and Mumbai</h3>
+<a id="india" class="anchor" href="#india" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characteristics of Bengaluru, Delhi, and Mumbai</h3>
 
 <p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.  In some cases, it is advantages to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p>  
+
+<h4>
+<a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
 
 <p>Starting with the road network, Bengaluru and Delhi have been increasing over time.  Mumbai has been relatively stable and could use some encouragement, but digging a little deeper reveals some interesting insights.</p>
 
@@ -1810,7 +1813,7 @@
 
 <p>While coverage, or in this case the accumulation of kilometers is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but additional attributes and enhancement to features can still be extracted.  Many types of enhancements would not easily be possible for editors relying solely on aerial imagery.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p>
 
-<p>Should it be 100%?  Actually, no, not in many dense urban areas in India.  There are many areas that rely more heavily on place names associated with residential sectors.  Of course that means it is very important to have them.</p>  
+<p>Should it be 100%?  Actually, no, not in many dense urban areas in India.  There are many areas that rely more heavily on place names associated with residential sectors and landmarks.  Of course that means it is very important to have the residential sectors and landmarks in the data.</p>  
 
 <div id="curve_chart2" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L7-L11">example query</a> for this chart.</p>
@@ -1819,11 +1822,9 @@
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L21-L25">example query</a> for this chart.</p>
 
 
-<p>There is an interesting relationship between kilometers of road edited and the number of segments edited.  In years 2008 through 2014, the number of edits to existing features outpaces the addition of brand new features in nearly every year for Bengaluru and Delhi.  Of course, Mumbai is doing it's own thing and needs further investigation.</p>
+<p>There is an interesting relationship between kilometers of road edited and the number of segments edited.  In years 2008 through 2014, the number of edits to existing features outpaces the addition of new features in nearly every year for Bengaluru and Delhi.  Mumbai is doing it's own thing and needs further investigation, but <a href="https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap#The_Switch_to_API_0.6_and_the_explosion_of_User_Growth">API changes</a> might give us some insight.</p>
 
-<p>With the number of segments rising faster than the number of kilometers in Bengaluru and Delhi, we are seeing a trend towards smaller segments or segmentation of larger features.  This makes sense.</p>  
-
-<p>When editors are faced with a blank canvas, the long easy highways are the low hanging fruit.  A shift towards smaller segments over time likely indicates an increase in detail, and this is good!  A community of editors is taking the time to fill in the details, and they are in for the long haul.</p>  
+<p>With the number of segments rising faster than the number of kilometers in Bengaluru and Delhi, we are seeing a trend towards smaller segments or segmentation of larger features.  This makes sense.  When editors are faced with a blank canvas, the long easy highways are the low hanging fruit.  A shift towards smaller segments over time likely indicates an increase in detail, and this is good!  A community of editors is taking the time to fill in the details.</p>  
 
 <p>The graphics below show stacked bar charts for the kilometer of edits to new and exisiting roads each year overlaid with dotted line charts representing the number of road segments edited each year.  New verses existing is an approximation derived from version numbers.  Same data, two views, and each year is an accumulation of prior years.</p> 
 
@@ -1835,12 +1836,15 @@
 
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L13-L19">example query</a> for the segments added to these charts.</p>
 
-<p>Taking a look at buildings, it was a slow start for all three cities until 2009 when things start to pick up steam.  Interestingly, Mumbai has a noticiable dip in 2012, while upward momentum skips a beat for Bengaluru and Delhi that year, too.  Licence changes are at work here.</p>
+<h4>
+<a id="buildings" class="anchor" href="#buildings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildings</h4>
+
+<p>Taking a look at buildings, it was a slow start for all three cities until 2009 when things start to pick up steam.  Interestingly, Mumbai has a noticiable dip in 2012, while upward momentum skips a beat for Bengaluru and Delhi that year, too.  License changes are at work here.</p>
 
 <div id="curve_chartBuildingCount" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L33">example query</a> for this chart.</p>
 
-<p>In additional to overall coverage, there are a number of tags that add value to buildings.  Examples include names, address information, type, and height.  The charts below brake down the distribution of buildings with and without address information along with the total area.  The address information comes from two sources: tags on the buildings, and points with address tags that intersected the buildings.  In all cases, there are very few full addresses.  The query built to extract this information was very generous and tallied anything with any address field populated.</p>
+<p>In additional to overall coverage, there are a number of tags that add value to buildings.  Examples include names, address information, type, and height.  The charts below break down the distribution of buildings with and without address information, along with the total area.  The address information comes from two sources: tags on the buildings, and points with address tags that intersected the buildings.  In all cases, there are very few full addresses.  The query built to extract this information is very generous and tallies anything with a populated address field.</p>
 
 <div id="chart_divbb" style="width: 900px; height: 500px;"></div>
 
@@ -1849,14 +1853,17 @@
 <div id="chart_divmb" style="width: 900px; height: 500px;"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L35-L45">example query</a> for these charts.</p>
 
-<p>A true analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.  Without ground truth expeditions, we can look to topological relationships for some errors.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road is likely in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
+<h4>
+<a id="topology" class="anchor" href="#topology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topological Relationships</h4>
 
-<p>Query results reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Bengaluru seems to be approaching a level of concern and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.</p>
+<p>A true analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.  Without ground truth expeditions, we can look to topological relationships for some features that need further investigation.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road is likely in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
+
+<p>Queries reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Bengaluru seems to be approaching a level of concern, and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.  With any measurement, the analysis is incomplete without vizualizing the actual data.  While these types of intersections may appear to be accumulating in Delhi, it is possible that they are all valid.</p>
 
 <div id="curve_chartBRoadIntersections" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L69-L71">example query</a> for this chart.</p>  
 
-<p>Are the remaining intersections equally problematic?  It depends entirely on the mapping application, and a break down of intersections by type can be used to evaluate the severity of the remaining errors.  In the case of these three cities, the primary and secondary roads are fairly clear of intersections with buildings.  The bulk of the issues occur with the residential, and service roads.</p>
+<p>Are the remaining intersections between buildings and roads equally problematic?  It depends entirely on the mapping application, and a break down of intersections by type can be used to evaluate the visual impact these features may have on rendering.  In the case of these three cities, the primary and secondary roads are fairly clear of intersections with buildings.  The bulk of the issues occur with the residential and service roads.  For general definitions for these road types, see the <a href="https://wiki.openstreetmap.org/wiki/Map_Features#Highway">OpenStreetMap wiki</a> for these tags.</p>
 
 <div id="chart_divbrti" style="width: 900px; height: 500px"></div>
 
@@ -1864,6 +1871,9 @@
 
 <div id="chart_divmrti" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L73-L101">example query</a> for these charts.</p>
+
+<h4>
+<a id="pois" class="anchor" href="#pois" aria-hidden="true"><span class="octicon octicon-link"></span></a>Points of Interest</h4>
 
 <div id="curve_chartPOICount" style="width: 900px; height: 500px"></div>
 
@@ -1882,13 +1892,13 @@
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L143-L160">example query</a> for these charts.</p>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
+<a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
 
 <p>Writing goes here...</p>
 
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h3>
+<a id="biblio" class="anchor" href="#biblio" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h3>
 
 <p>
 <ol>
