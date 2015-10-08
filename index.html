@@ -1800,7 +1800,38 @@
 <h3>
 <a id="india" class="anchor" href="#india" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characteristics of Bengaluru, Delhi, and Mumbai</h3>
 
-<p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.  In some cases, it is advantages to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p>  
+<p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.  In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p>  
+
+<p>More about the data:</p>
+<p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> a bounding box.  Those bounding boxes are as follows:</p>
+
+
+<TABLE BORDER="1" CELLSPACING="1" CELLPADDING="1">
+<TR>
+<TD ALIGN ="center"> City </TD>
+<TD ALIGN ="center"> Bengaluru </TD>
+<TD ALIGN ="center"> Delhi </TD>
+<TD ALIGN ="center"> Mumbai </TD>
+</TR> 
+
+<TR>
+<TD ALIGN ="center"> Bounding Box </TD> 
+<TD ALIGN ="center"> 77.470261, 12.83296, 77.743858, 13.19844 </TD>
+<TD ALIGN ="center"> 76.83831, 28.404181, 77.343689, 28.88382 </TD>
+<TD ALIGN ="center"> 72.790878, 18.878559, 72.893707, 19.05402 </TD>
+</TR>
+
+<TR>
+<TD ALIGN ="center"> Source </TD>
+<TD ALIGN ="center"> <a href="http://isithackday.com/geoplanet-explorer/index.php?woeid=2295420">woeid 2295420</a> </TD>
+<TD ALIGN ="center"> <a href="http://isithackday.com/geoplanet-explorer/index.php?woeid=2295019">woeid 2295019</a> </TD>
+<TD ALIGN ="center"> <a href="http://isithackday.com/geoplanet-explorer/index.php?woeid=12586539">woeid 12586539</a> </TD>
+</TR>
+
+</TABLE>
+<p>The data was then imported into a postgres database using OSM2PGSQL using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of OSM2PGSQL's "extra attributes" option.</p>
+
+<p>With everything involved, it's a lot to install and configure.  To make things easier, Matt Amos put together a virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.</p>
 
 <h4>
 <a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
