@@ -342,7 +342,7 @@
           colors: ['#C0C0C0', '#4682B4', '#191919'], 
           series: {
            2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
-          legend: { position: 'bottom'}
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
         };
     var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
     formatter1.format(data, 1);
@@ -386,7 +386,7 @@
           colors: ['#C0C0C0', '#4682B4', '#191919'], 
           series: {
            2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
-          legend: { position: 'bottom'}
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
         };
     var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
     formatter1.format(data, 1);
@@ -430,7 +430,7 @@
           colors: ['#C0C0C0', '#4682B4', '#191919'], 
           series: {
            2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
-          legend: { position: 'bottom'}
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
         };
     var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
     formatter1.format(data, 1);
@@ -1844,7 +1844,7 @@
 <div id="curve_chartBuildingCount" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L33">example query</a> for this chart.</p>
 
-<p>In additional to overall coverage, there are a number of tags that add value to buildings.  Examples include names, address information, type, and height.  The charts below break down the distribution of buildings with and without address information, along with the total area.  The address information comes from two sources: tags on the buildings, and points with address tags that intersected the buildings.  In all cases, there are very few full addresses.  The query built to extract this information is very generous and tallies anything with a populated address field.</p>
+<p>In additional to overall coverage, there are a number of tags that add value to buildings.  Examples include names, address information, type, and height.  While aerial imagery can be used to digitize building footprints, the added value of additional attributes often come from local knowledge.  The charts below break down the distribution of buildings with and without address information, along with the total area.  The address information comes from two sources: tags on the buildings, and points with address tags that intersected the buildings.  In all cases, there are very few full addresses.  The query built to extract this information is very generous and tallies anything with a populated address field.</p>
 
 <div id="chart_divbb" style="width: 900px; height: 500px;"></div>
 
@@ -1856,7 +1856,7 @@
 <h4>
 <a id="topology" class="anchor" href="#topology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topological Relationships</h4>
 
-<p>A true analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.  Without ground truth expeditions, we can look to topological relationships for some features that need further investigation.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road is likely in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
+<p>A comprehensive analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.  Without ground truth expeditions, we can look to topological relationships for some features that need further investigation.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road may be in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
 
 <p>Queries reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Bengaluru seems to be approaching a level of concern, and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.  With any measurement, the analysis is incomplete without vizualizing the actual data.  While these types of intersections may appear to be accumulating in Delhi, it is possible that they are all valid.</p>
 
