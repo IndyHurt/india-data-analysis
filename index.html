@@ -1802,8 +1802,10 @@
 
 <p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.</p>  
 
-<img src="maps/locator_map.png" alt="Locator Map"/>
- 
+<figure>
+  <img src="maps/locator_map.png" alt="Locator Map"/>
+  <figcaption>Locator map curtesy of Nathaniel Kelso.</figcaption>
+</figure>  
 
 <p>More about the data:</p>
 <p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> a bounding box.  Those bounding boxes are as follows:</p>
@@ -1849,8 +1851,11 @@
 
 <p>Here is a visualization of how roads are accumulating over time, focused on Delhi.</p>
 
-<img src="maps/delhi_time_series.gif" alt="Delhi Roads Time Series"/>
-
+<figure>
+  <img src="maps/delhi_time_series.gif" alt="Delhi Roads Time Series"/>
+  <figcaption>Timeseries visualization curtesy of Nathaniel Kelso</figcaption>
+</figure>
+  
 <p>While coverage, or in this case the accumulation of kilometers is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but additional attributes and enhancement to features can still be extracted.  Many types of enhancements would not easily be possible for editors relying solely on aerial imagery.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p>
 
 <p>Should it be 100%?  Actually, no, not in many dense urban areas in India.  There are many areas that rely more heavily on place names associated with residential sectors and landmarks.  Of course that means it is very important to have the residential sectors and landmarks in the data.</p>  
