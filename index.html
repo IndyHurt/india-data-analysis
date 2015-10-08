@@ -1800,7 +1800,10 @@
 <h3>
 <a id="india" class="anchor" href="#india" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characteristics of Bengaluru, Delhi, and Mumbai</h3>
 
-<p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.  In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p>  
+<p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.</p>  
+
+<img src="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/maps/locator_map.png" alt="Locator Map">
+ 
 
 <p>More about the data:</p>
 <p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> a bounding box.  Those bounding boxes are as follows:</p>
@@ -1831,12 +1834,14 @@
 </TABLE>
 <p>The data was then imported into a postgres database using OSM2PGSQL using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of OSM2PGSQL's "extra attributes" option.</p>
 
-<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, Matt Amos put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.</p>
+<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, Matt Amos put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
 
 <h4>
 <a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
 
 <p>Starting with the road network, Bengaluru and Delhi have been increasing over time.  Mumbai has been relatively stable and could use some encouragement, but digging a little deeper reveals some interesting insights.</p>
+
+<p>In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p> 
 
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
 
