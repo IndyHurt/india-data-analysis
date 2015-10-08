@@ -1803,7 +1803,7 @@
 <p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.</p>  
 
 <figure>
-  <img src="maps/locator_map.png" alt="Locator Map"/>
+  <img src="maps/locator_map.gif" alt="Locator Map"/>
   <figcaption>Locator map courtesy of Nathaniel Kelso.</figcaption>
 </figure>  
 
@@ -1922,13 +1922,21 @@
 <h4>
 <a id="pois" class="anchor" href="#pois" aria-hidden="true"><span class="octicon octicon-link"></span></a>Points of Interest</h4>
 
+<p>Points of interest are much easier to add once the roads are in place.  For Bengaluru and Delhi, road edits start to gain momentum in 2009 followed by buildings in 2010 and 2011 for all three cities.  Points of interest begin to gain momentum around the same time.</p>  
+
 <div id="curve_chartPOICount" style="width: 900px; height: 500px"></div>
+
+<p>A point of interest or POI is stationary, can have many attributes, and may be paired with an associated polygonal feature.  There are many types of POIs so we have chosen to look at a subset comprised as those with populated aeroway, amenity, barrier, highway, historic, leisure, man made, natural, railway, shop, tourism, or waterway tags.  Bengaluru has significantly more POIs when compared to Delhi and Mumbai, but the distribution of what is being added is quite similar across all cities.  It is helpful to remember that these types are not necessarily mutually exclusive.  It is very likely that many of the shop POIs also have an amenity tag.</p>
 
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
 
 <div id="chart_div2" style="width: 900px; height: 500px;"></div>
 
 <div id="chart_div3" style="width: 900px; height: 500px;"></div>
+
+<p>Since the osm_user tag were brought in during the OSM2PGSQL process, we can also look at the editors to see who has edited the most POIs.</p>
+
+
 
 <div id="chart_divbtree" style="width: 900px; height: 500px;"></div>
 
