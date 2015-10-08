@@ -1848,13 +1848,6 @@
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
 
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L1-L5">example query</a> for this chart.</p>
-
-<p>Here is a visualization of how roads are accumulating over time, focused on Delhi.</p>
-
-<figure>
-  <img src="maps/delhi_time_series.gif" alt="Delhi Roads Time Series"/>
-  <figcaption>Timeseries visualization courtesy of Nathaniel Kelso</figcaption>
-</figure>
   
 <p>While coverage, or in this case the accumulation of kilometers is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but additional attributes and enhancement to features can still be extracted.  Many types of enhancements would not easily be possible for editors relying solely on aerial imagery.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p>
 
@@ -1869,9 +1862,18 @@
 
 <p>There is an interesting relationship between kilometers of road edited and the number of segments edited.  In years 2008 through 2014, the number of edits to existing features outpaces the addition of new features in nearly every year for Bengaluru and Delhi.  Mumbai is doing it's own thing and needs further investigation, but <a href="https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap#The_Switch_to_API_0.6_and_the_explosion_of_User_Growth">API changes</a> might give us some insight.</p>
 
-<p>With the number of segments rising faster than the number of kilometers in Bengaluru and Delhi, we are seeing a trend towards smaller segments or segmentation of larger features.  This makes sense.  When editors are faced with a blank canvas, the long easy highways are the low hanging fruit.  A shift towards smaller segments over time likely indicates an increase in detail, and this is good!  A community of editors is taking the time to fill in the details.</p>  
+<p>With the number of segments rising faster than the number of kilometers in Bengaluru and Delhi, we are seeing a trend towards smaller segments or segmentation of larger features.  This makes sense, and is even visually identifiable in this time series for Delhi.</p>  
 
-<p>The graphics below show stacked bar charts for the kilometer of edits to new and exisiting roads each year overlaid with dotted line charts representing the number of road segments edited each year.  New verses existing is an approximation derived from version numbers.  Same data, two views, and each year is an accumulation of prior years.</p> 
+<figure>
+  <img src="maps/delhi_time_series.gif" alt="Delhi Roads Time Series"/>
+  <figcaption>Time series visualization courtesy of Nathaniel Kelso</figcaption>
+</figure>
+
+<p>When editors are faced with a blank canvas, the long easy highways are the low hanging fruit.  A shift towards smaller segments over time likely indicates an increase in detail, and this is good!  A community of editors is taking the time to fill in the gaps.</p>  
+
+<p>The graphics below show stacked bar charts for the kilometer of edits to new and existing roads each year overlaid with dotted line charts representing the number of road segments edited each year.  New verses existing is an approximation derived from version numbers.  Same data, two views, and each year is an accumulation of prior years.</p>
+
+<p>Pairing the version numbers with the time stamps would allow us to identify how new or how stale a feature really is, and this is an extra step we plan to tackle in the near future.</p> 
 
 <div id="chart_divbre" style="width: 900px; height: 500px;"></div>
 
