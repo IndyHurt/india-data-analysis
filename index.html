@@ -1772,8 +1772,8 @@
       <h1 class="project-name">India-data-analysis</h1>
       <h2 class="project-tagline"></h2>
       <a href="https://github.com/IndyHurt/india-data-analysis" class="btn">View on GitHub</a>
-      <a href="https://github.com/IndyHurt/india-data-analysis/zipball/master" class="btn">Download data</a>
-      <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql" class="btn">View queries</a>
+      <a href="https://github.com/IndyHurt/india-data-analysis/zipball/master" class="btn">Download Data</a>
+      <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql" class="btn">View Queries</a>
     </section>
 
     <section class="main-content">
@@ -1934,9 +1934,7 @@
 
 <div id="chart_div3" style="width: 900px; height: 500px;"></div>
 
-<p>Since the osm_user tag were brought in during the OSM2PGSQL process, we can also look at the editors to see who has edited the most POIs.</p>
-
-
+<p>Since the osm_user tag was brought in during the OSM2PGSQL process, we can identify the cumulative number of POIs attributed to each editor at the end of any given year where they represent the last edit.  There are many editors that only contributed one POI, while the bulk of the features were contributed by a small group of editors.  This is the classic long tail distribution characteristic of many crowd sourced datasets.  Seeing all of the osm_user names is a window into the community.  The high percentage of Indian names is hopefully an indicator of local knowledge.</p>
 
 <div id="chart_divbtree" style="width: 900px; height: 500px;"></div>
 
@@ -1945,6 +1943,8 @@
 <div id="chart_divmtree" style="width: 900px; height: 500px;"></div>
 
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L143-L160">example query</a> for these charts.</p>
+
+<p>These types of visualizations also highlight variations in editor preferences.  The top contribitors of POIs will not necessarily match the top editors of roads or buildings.  Editors tend to favor specific types of features [<a href="#r8">8</a>].</p>
 
 <h3>
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
@@ -1964,7 +1964,7 @@
 <li>Haklay, M., et al., How Many Volunteers Does it Take to Map an Area Well? The Validity of Linus’ Law to Volunteered Geographic Information. The Cartographic Journal, 2010. 47(4): p. 315-322.</li>
 <li>Girres, J.-F. and G. Touya, Quality Assessment of the French OpenStreetMap Dataset. Transactions in GIS, 2010. 14(4): p. 435-459.</li>
 <li><a id="r7"></a>Neis, P. and A. Zipf, Analyzing the Contributor Activity of a Volunteered Geographic Information Project — The Case of OpenStreetMap. ISPRS International Journal of Geo-Information, 2012. 1(2): p. 146.</li>
-<li>Bégin, D., R. Devillers, and S. Roche, Assessing Volunteered Geographic Information (VGI) Quality Based on Contributors' Mapping Behaviours. International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, 2013. XL-2/W1: p. 6.</li>
+<li><a id="r8"></a>Bégin, D., R. Devillers, and S. Roche, Assessing Volunteered Geographic Information (VGI) Quality Based on Contributors' Mapping Behaviours. International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, 2013. XL-2/W1: p. 6.</li>
 <li>Mooney, P. and P. Corcoran, Characteristics of Heavily Edited Objects in OpenStreetMap. Future Internet, 2012. 4(1): p. 285.</li>
 <li><a id="r10"></a>Neis, P., M. Goetz, and A. Zipf, Towards Automatic Vandalism Detection in OpenStreetMap. ISPRS International Journal of Geo-Information, 2012. 1(3): p. 315.</li>
 
