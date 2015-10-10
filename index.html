@@ -1782,7 +1782,7 @@
 
 <p> When measuring data quality, what exactly does that mean?  One may try to formulate quantitative measures that characterize a data set as superior by comparison, complete, accurate, consistent, and current.  Additional measurements may focus on documentation, and source evaluation with respect to the reputation or authoritative nature of the data provider. </p>
 
-<p>	The original purpose of data collection and the original scale at which data was collected may also have bearing on the utility of the data for purposes beyond it's original intent.  With this in mind, data quality may be measured with specific use cases in mind.  For spatial data, a few examples include routing, search, and cartographic rendering. </p>
+<p>	The original purpose of data collection and the original scale at which data was collected may also have bearing on the utility of the data for purposes beyond it's original intent.  With this in mind, data quality may be measured for specific use cases.  For spatial data, a few examples include routing, search, and cartographic rendering. </p>
 
 <h3>
 <a id="evaluateOSM" class="anchor" href="#evaluateOSM" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluating OpenStreetMap Data Quality</h3>
@@ -1807,7 +1807,7 @@
   <figcaption>Locator map courtesy of <a href="https://github.com/nvkelso">Nathaniel Vaughn Kelso</a>.</figcaption>
 </figure>  
 
-<p>More about the data:</p>
+<p>More about the OpenStreetMap data:</p>
 <p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> a bounding box.  Those bounding boxes are as follows:</p>
 
 
@@ -1836,7 +1836,7 @@
 </TABLE>
 <p>The data was then imported into a postgres database using OSM2PGSQL using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of OSM2PGSQL's "extra attributes" option.</p>
 
-<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, Matt Amos put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
+<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, <a href="https://github.com/zerebubuth">Matt Amos</a> put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
 
 <h4>
 <a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
