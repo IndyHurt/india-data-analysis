@@ -1310,7 +1310,7 @@
           maxColor: '#016c59',
           headerHeight: 15,
           fontColor: 'black',
-          showScale: true,
+          showScale: false,
           generateTooltip: showFullTooltip
         });
 
@@ -1610,7 +1610,7 @@
           maxColor: '#016c59',
           headerHeight: 15,
           fontColor: 'black',
-          showScale: true,
+          showScale: false,
           generateTooltip: showFullTooltip
         });
 
@@ -1750,7 +1750,7 @@
           maxColor: '#016c59',
           headerHeight: 15,
           fontColor: 'black',
-          showScale: true,
+          showScale: false,
           generateTooltip: showFullTooltip
         });
 
@@ -1836,18 +1836,18 @@
 </TABLE>
 <p>The data was then imported into a postgres database using OSM2PGSQL using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of OSM2PGSQL's "extra attributes" option.</p>
 
-<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, <a href="https://github.com/zerebubuth">Matt Amos</a> put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this enviroment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
+<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, <a href="https://github.com/zerebubuth">Matt Amos</a> put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this environment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
 
 <h4>
 <a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
 
 <p>Starting with the road network, Bengaluru and Delhi have been increasing over time.  Mumbai has been relatively stable and could use some encouragement, but digging a little deeper reveals some interesting insights.</p>
 
-<p>In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p> 
-
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
 
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L1-L5">example query</a> for this chart.</p>
+
+<p>NOTE: In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p> 
   
 <p>While coverage, or in this case the accumulation of kilometers is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but additional attributes and enhancement to features can still be extracted.  Many types of enhancements would not easily be possible for editors relying solely on aerial imagery.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p>
 
@@ -1873,7 +1873,7 @@
 
 <p>The graphics below show stacked bar charts for the kilometer of edits to new and existing roads each year overlaid with dotted line charts representing the number of road segments edited each year.  New verses existing is an approximation derived from version numbers.  Same data, two views, and each year is an accumulation of prior years.</p>
 
-<p>Pairing the version numbers with the time stamps would allow us to identify how new or how stale a feature really is, and this is an extra step we plan to tackle in the near future.</p> 
+<p>Pairing the version numbers with the time stamps would allow us to identify how new or how stale a feature really is, and this is an extra step we plan to tackle in the future.</p> 
 
 <div id="chart_divbre" style="width: 900px; height: 500px;"></div>
 
@@ -1903,14 +1903,16 @@
 <h4>
 <a id="topology" class="anchor" href="#topology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topological Relationships</h4>
 
-<p>A comprehensive analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.  Without ground truth expeditions, we can look to topological relationships for some features that need further investigation.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road may be in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
+<p>A comprehensive analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.</p>  
 
-<p>Queries reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Bengaluru seems to be approaching a level of concern, and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.  With any measurement, the analysis is incomplete without visualizing the actual data.  While these types of intersections may appear to be accumulating in Delhi, it is possible that they are all valid.</p>
+<p>Without ground truth expeditions, we can look to topological relationships for some features that need further investigation.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road may be in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
+
+<p>Queries reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Bengaluru seems to be approaching a level of concern, and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.  With any measurement, the analysis is incomplete without visualizing the actual features.  While these types of intersections may appear to be accumulating in Delhi, it is possible that they are all valid.</p>
 
 <div id="curve_chartBRoadIntersections" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L69-L71">example query</a> for this chart.</p>  
 
-<p>Are the remaining intersections between buildings and roads equally problematic?  It depends entirely on the mapping application, and a break down of intersections by type can be used to evaluate the visual impact these features may have on rendering.  In the case of these three cities, the primary and secondary roads are fairly clear of intersections with buildings.  The bulk of the issues occur with the residential and service roads.  For general definitions for these road types, see the <a href="https://wiki.openstreetmap.org/wiki/Map_Features#Highway">OpenStreetMap wiki</a> for these tags.</p>
+<p>Are the remaining intersections between buildings and roads equally problematic?  It depends entirely on the mapping application, and a break down of intersections by type can be used to evaluate the visual impact these features may have on rendering.  In the case of these three cities, the primary and secondary roads are fairly clear of intersections with buildings.  The bulk of the issues occur with the residential and service roads.  For general definitions for these road types, see the <a href="https://wiki.openstreetmap.org/wiki/Map_Features#Highway">OpenStreetMap wiki</a>.</p>
 
 <div id="chart_divbrti" style="width: 900px; height: 500px"></div>
 
@@ -1922,17 +1924,22 @@
 <h4>
 <a id="pois" class="anchor" href="#pois" aria-hidden="true"><span class="octicon octicon-link"></span></a>Points of Interest</h4>
 
-<p>Points of interest are much easier to add once the roads are in place.  For Bengaluru and Delhi, road edits start to gain momentum in 2009 followed by buildings in 2010 and 2011 for all three cities.  Points of interest begin to gain momentum around the same time.</p>  
+<p>Points of interest are much easier to add once the roads are in place.  They are comprised of things you might search for while using the map.  Examples include businesses, parks, schools, airports, and many others.  For Bengaluru and Delhi, road edits start to gain momentum in 2009 followed by buildings in 2010 and 2011 for all three cities.  Points of interest begin to gain momentum in 2010 and 2011 as well.</p>  
 
 <div id="curve_chartPOICount" style="width: 900px; height: 500px"></div>
 
-<p>A point of interest or POI is stationary, can have many attributes, and may be paired with an associated polygonal feature.  There are many types of POIs so we have chosen to look at a subset comprised as those with populated aeroway, amenity, barrier, highway, historic, leisure, man made, natural, railway, shop, tourism, or waterway tags.  Bengaluru has significantly more POIs when compared to Delhi and Mumbai, but the distribution of what is being added is quite similar across all cities.  It is helpful to remember that these types are not necessarily mutually exclusive.  It is very likely that many of the shop POIs also have an amenity tag.</p>
+<p>A point of interest or POI is stationary, can have many attributes, and may be paired with an associated polygonal feature.  There are many types of POIs so we have chosen to look at a subset comprised as those with populated aeroway, amenity, barrier, highway, historic, leisure, man made, natural, railway, shop, tourism, or waterway tags.</p>  
+
+<p>Bengaluru has significantly more POIs when compared to Delhi and Mumbai, but the distribution of what is being added is quite similar across all cities.  It is helpful to remember that these types are not necessarily mutually exclusive.  It is very likely that many of the shop POIs also have an amenity tag.</p>
 
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
 
 <div id="chart_div2" style="width: 900px; height: 500px;"></div>
 
 <div id="chart_div3" style="width: 900px; height: 500px;"></div>
+
+<h4>
+<a id="poi_editors" class="anchor" href="#poi_editors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Editors and Points of Interest</h4>
 
 <p>Since the osm_user tag was brought in during the OSM2PGSQL process, we can identify the cumulative number of POIs attributed to each editor at the end of any given year where they represent the last edit.  There are many editors that only contributed one POI, while the bulk of the features were contributed by a small group of editors.  This is the classic long tail distribution characteristic of many crowd sourced datasets.  Seeing all of the osm_user names is a window into the community.  The high percentage of Indian names is hopefully an indicator of local knowledge.</p>
 
@@ -1949,7 +1956,9 @@
 <h3>
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
 
-<p>Writing goes here...</p>
+<p>Why aren't more people analyzing the OSM history?  It may have something to do with the difficulty of managing such a large dataset.  It may have something to do with the requirements of the tools needed to load the data into a database. Unlike the planet file that contains only the last edited version of every feature in OpenStreetMap, tools like OSM2PGSQL aren't designed to load multiple versions of features.  There are a few history tools available and they have been highlighted in this blog post.  Unfortunatley these tools do not run natively on OS X or Windows which are the two most common operating systems GIS analysts use.  To make the current OpenStreetMap data more accessible and manageable, Mapzen offers <a href="https://mapzen.com/data/metro-extracts/">Metro Extracts</a>, and they are quite popular.  If historical metro extracts were also available, would they also be popular?  For starters, the historical OpenStreetMap data for the three cities featured in this blog post are available <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/data">here</a>.</p>
+
+<p>In addition to making the data more accessible, we need a flexible framework for data quality reporting.  The assortment of stats presented here are just the tip of the iceberg.  The analysis really falls into two categories:  A measure of the data, and a measure of the community.  A snapshot in time cannot capture everything we want to know about the data in the same way a snapshot communicates for other data sources because OpenStreetMap data is far more dynamic and heterogeneous than anything we might try to compare it to.</p>  
 
 
 <h3>
