@@ -1780,23 +1780,34 @@
       <h3>
 <a id="dataquality101" class="anchor" href="#dataquality101" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Quality 101</h3>
 
-<p> When measuring data quality, what exactly does that mean?  One may try to formulate quantitative measures that characterize a data set as superior by comparison, complete, accurate, consistent, and current.  Additional measurements may focus on documentation, and source evaluation with respect to the reputation or authoritative nature of the data provider. </p>
+<p> What exactly does "measuring data quality" mean? Which quantitative measures should you consider when you try to characterize a data set as "superior"? Accuracy? Consistency? Is it complete? Is it current? What should you compare it to? Additional measurements may focus on documentation, and source evaluation with respect to the reputation or authoritative nature of the data provider. </p>
 
-<p>	The original purpose of data collection and the original scale at which data was collected may also have bearing on the utility of the data for purposes beyond it's original intent.  With this in mind, data quality may be measured for specific use cases.  For spatial data, a few examples include routing, search, and cartographic rendering. </p>
+<p>The original purpose and scale of the data collection may also have bearing on the utility of the data for purposes beyond its original intent. <code><strong>EXAMPLES</strong>?</code> With this in mind, data quality may be measured for specific use cases.  For spatial data, a few examples include routing, search, and cartographic rendering. </p>
 
 <h3>
 <a id="evaluateOSM" class="anchor" href="#evaluateOSM" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluating OpenStreetMap Data Quality</h3>
 
-<p>Techniques to assess data quality of <a href="https://www.openstreetmap.org">OpenStreetMap</a> data have been conducted by several researchers in recent years.  Analysis of the road network is common, but others have focused on other features like buildings [<a href="#r1">1</a>].  While several [<a href="#r2">2-6</a>] measure characteristics of OpenStreetMap data against authoritative sources, others take a community approach by evaluating the community of editors [<a href="#r7">7-9</a>].  In many of these studies, the heterogeneity of OpenStreetMap data is described as a difficult characteristic to address in order to effectively compare it to any other data source.  In actuality, this is the case even when comparing OpenStreetMap data to itself, but it should not be thought of as not a weakness.</p>
+<p>In recent years, researchers have developed techniques to assess data quality of <a href="https://www.openstreetmap.org">OpenStreetMap</a> data. Analysis of the road network is common, but others have focused on other features like buildings [<a href="#r1">1</a>].  While several [<a href="#r2">2-6</a>] measure characteristics of OpenStreetMap data against authoritative sources, others take a community approach by evaluating the community of editors [<a href="#r7">7-9</a>].  Many of these studies describe the heterogeneity of OpenStreetMap data as a difficult characteristic to address in order to effectively compare it to any other data source.  In actuality, this is the case even when comparing OpenStreetMap data to itself, but it should not be thought of as not a weakness. <code><strong>WHY?</strong></code></p> 
 
-<p>Complementing the various OpenStreetMap research efforts that have been published in peer reviewed journals, code repositories featuring OpenStreetMap data analysis tools are available from a number of contributors.  In this space, find <a href="https://github.com/zehpunktbarron/iOSMAnalyzer">iOSMAnalyzer</a>: a python tool to generate data quality reports utilizing <a href="https://github.com/joto/osmium">Osmium</a>, <a href="https://github.com/MaZderMind/osm-history-splitter">OSM-History-Splitter</a>, <a href="https://github.com/MaZderMind/osm-history-renderer">OSM-History-Render/Importer</a>, <a href="http://matplotlib.org">MatplotLib</a> for visualizing statistics, and <a href="http://osmlab.github.io/osm-qa-tiles/">OSM QA tiles</a> from <a href="https://www.mapbox.com">Mapbox</a> for a tile based opportunity to analyze current OpenStreetMap data.  Find also nearly two dozen OpenStreetMap data quality checks, written in Perl by <a href="http://wiki.openstreetmap.org/wiki/User:Gary68">Gerhard Gary68</a>, <a href="http://keepright.at">Keep Right</a> for visualizing programatically detected errors, <a href="http://osmose.openstreetmap.fr/en/map/">Osmose</a> for programatic error detection and editing, <a href="http://maproulette.org">MapRoulette</a> built around challenges to fix themes of programattically detected errors, and many others.</p>
+<p>Code repositories featuring OpenStreetMap data analysis tools are available from a number of contributors that complement the various OpenStreetMap research efforts that have been published in peer reviewed journals. 
+<ul>
+<li> <a href="https://github.com/zehpunktbarron/iOSMAnalyzer">iOSMAnalyzer</a>: a python tool to generate data quality reports utilizing <a href="https://github.com/joto/osmium">Osmium</a>
+<li><a href="https://github.com/MaZderMind/osm-history-splitter">OSM-History-Splitter</a> 
+<li><a href="https://github.com/MaZderMind/osm-history-renderer">OSM-History-Render/Importer</a> <li><a href="http://matplotlib.org">MatplotLib</a> for visualizing statistics
+<li> <a href="http://osmlab.github.io/osm-qa-tiles/">OSM QA tiles</a> from <a href="https://www.mapbox.com">Mapbox</a> for a tile based opportunity to analyze current OpenStreetMap data.
+<li>two dozen OpenStreetMap data quality checks, written in Perl by <a href="http://wiki.openstreetmap.org/wiki/User:Gary68">Gerhard Gary68</a>
+<li><a href="http://keepright.at">Keep Right</a> for visualizing programatically detected errors
+<li><a href="http://osmose.openstreetmap.fr/en/map/">Osmose</a> for programatic error detection and editing
+<li><a href="http://maproulette.org">MapRoulette</a> built around challenges to fix themes of programattically detected errors, and many others.
+</ul>
+</p>
 
 <h3>
 <a id="community" class="anchor" href="#community" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community and Quality</h3>
 
-<p>The relationship between community and quality is fascinating.  OpenStreetMap data quality clearly benefits from an extensive community of editors.  It is easy to imagine why this might be the case.  More contributors leads to more content, and faster corrections when errors arise, including examples of vandalism like the introduction of <a href="https://lists.openstreetmap.org/pipermail/talk-us/2015-September/015321.html">fictional data</a> or deletion of existing data [<a href="#r10">10</a>].</p>  
+<p>The relationship between community and quality is fascinating.  OpenStreetMap data quality clearly benefits from an extensive community of editors.  It is easy to imagine why this might be the case: more contributors leads to more content, as well as faster corrections when errors arise, including vandalism, the introduction of <a href="https://lists.openstreetmap.org/pipermail/talk-us/2015-September/015321.html">fictional data</a> or deletion of existing data [<a href="#r10">10</a>].</p>  
 
-
+<code><strong>INTRO ON WHY YOU CHOSE INDIA</strong></code>
 <h3>
 <a id="india" class="anchor" href="#india" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characteristics of Bengaluru, Delhi, and Mumbai</h3>
 
@@ -1807,8 +1818,8 @@
   <figcaption>Locator map courtesy of <a href="https://github.com/nvkelso">Nathaniel Vaughn Kelso</a>.</figcaption>
 </figure>  
 
-<p>More about the OpenStreetMap data:</p>
-<p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> a bounding box.  Those bounding boxes are as follows:</p>
+<p>First, some background about the OpenStreetMap data and the methods used to extract the data of interest:</p>
+<p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> the following bounding boxes.</p>
 
 
 <TABLE BORDER="1" CELLSPACING="1" CELLPADDING="1">
@@ -1836,22 +1847,29 @@
 </TABLE>
 <p>The data was then imported into a PostgreSQL database using osm2pgsql using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of osm2pgsql's <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql#Special_.27tags.27">"extra attributes"</a> option.</p>
 
-<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, <a href="https://github.com/zerebubuth">Matt Amos</a> put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this environment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
+<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, <a href="https://github.com/zerebubuth">Matt Amos</a> put together a linux virtual machine with the tools necessary to run the history splitter and time filter.
+
+<CODE><STRONG>WHAT ABOUT HOMEBREW>http://wiki.openstreetmap.org/wiki/Osm2pgsql#Mac_OS_X</STRONG></CODE>
+
+To make it easier to reproduce this environment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.  And now, on to the results of the analysis:</p>
 
 <h4>
 <a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
 
-<p>Starting with the road network, Bengaluru and Delhi have been increasing over time.  Mumbai has been relatively stable and could use some encouragement, but digging a little deeper reveals some interesting insights.</p>
+<p>The density of the road network in Bengaluru and Delhi has increasing over time, while.  Mumbai has been relatively stable. Digging a little deeper reveals some interesting insights.</p>
 
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
 
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L1-L5">example query</a> for this chart.</p>
 
-<p>NOTE: In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.</p> 
+<p>NOTE: Relations have not been included for this pass because they often duplicate length and/or area.</p> 
   
-<p>While coverage, or in this case the accumulation of kilometers is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but populated tags and enhancement to geometries can still be extracted.</p>  
+<p>While coverage, or in this case the accumulation of kilometers, is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but populated tags and enhancement to geometries can still be extracted.</p>  
 
-<p>Many types of enhancements would not easily be possible for editors relying solely on aerial imagery.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p>
+<p>Many types of enhancements would not be easy for editors relying solely on aerial imagery.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  
+
+With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p> <code><strong>BURYING THE LEDE, MOVE THIS UP</strong></code>
+
 
 <p>Should it be 100%?  Actually, no, not in many dense urban areas in India.  There are many areas that rely more heavily on place names associated with residential sectors and landmarks.  Of course that means it is very important to have the residential sectors and landmarks in the data.</p>  
 
@@ -1862,7 +1880,7 @@
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L21-L25">example query</a> for this chart.</p>
 
 
-<p>There is an interesting relationship between kilometers of road edited and the number of segments edited.  In years 2008 through 2014, the number of edits to existing features outpaces the addition of new features in nearly every year for Bengaluru and Delhi.  Mumbai is doing it's own thing and needs further investigation, but <a href="https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap#The_Switch_to_API_0.6_and_the_explosion_of_User_Growth">API changes</a> might give us some insight.</p>
+<p>There is an interesting relationship between kilometers of road edited and the number of segments edited.  Between 2008 through 2014, the number of edits to existing features outpaces the addition of new features in nearly every year for Bengaluru and Delhi.  Mumbai is doing its own thing and needs further investigation, but <a href="https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap#The_Switch_to_API_0.6_and_the_explosion_of_User_Growth">API changes</a> might give us some insight.</p>
 
 <p>With the number of segments rising faster than the number of kilometers in Bengaluru and Delhi, we are seeing a trend towards smaller segments or segmentation of larger features.  This makes sense, and is even visually identifiable in this time series for Delhi.</p>  
 
@@ -1888,7 +1906,7 @@
 <h4>
 <a id="buildings" class="anchor" href="#buildings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildings</h4>
 
-<p>Taking a look at buildings, it was a slow start for all three cities until 2009 when things start to pick up steam.  Interestingly, Mumbai has a noticiable dip in 2012, while upward momentum skips a beat for Bengaluru and Delhi that year, too.  License changes are at work here.</p>
+<p>Taking a look at buildings, it was a slow start for all three cities until 2009 when things start to pick up steam.  Interestingly, Mumbai has a noticiable dip in 2012, while upward momentum skips a beat for Bengaluru and Delhi that year, too.  License changes are at work here.</p> <code><strong>WHICH LICENSE CHANGES</strong></code>
 
 <div id="curve_chartBuildingCount" style="width: 900px; height: 500px"></div>
 <p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L33">example query</a> for this chart.</p>
@@ -1960,9 +1978,9 @@
 <h3>
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
 
-<p>Why aren't more people analyzing the OSM history?  It may have something to do with the difficulty of managing such a large dataset.  It may have something to do with the requirements of the tools needed to load the data into a database. Unlike the planet file that contains only the last edited version of every feature in OpenStreetMap, tools like osm2pgsql aren't designed to load multiple versions of features.  There are a few history tools available and they have been highlighted in this blog post.  Unfortunatley these tools do not run natively on OS X or Windows which are the two most common operating systems GIS analysts use.  To make the current OpenStreetMap data more accessible and manageable, Mapzen offers <a href="https://mapzen.com/data/metro-extracts/">Metro Extracts</a>, and they are quite popular.  If historical metro extracts were also available, would they also be popular?  For starters, the historical OpenStreetMap data for the three cities featured in this blog post are available <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/data">here</a>.</p>
+<p>Why aren't more people analyzing the OSM history?  It may have something to do with the difficulty of managing such a large dataset, or the requirements of the tools needed to load the data into a database. Unlike the planet file that contains only the last edited version of every feature in OpenStreetMap, tools like osm2pgsql aren't designed to load multiple versions of features.  There are a few history tools available and they have been highlighted in this blog post.  Unfortunatley these tools do not run natively on OS X or Windows which are the two most common operating systems GIS analysts use. <code><strong>NEED TO CONFIRM THIS</strong></code> To make the current OpenStreetMap data more accessible and manageable, Mapzen offers <a href="https://mapzen.com/data/metro-extracts/">Metro Extracts</a>, and they are quite popular.  If historical metro extracts were also available, would they also be popular?  For starters, the historical OpenStreetMap data for the three cities featured in this blog post <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/data"> are available here</a>.</p>
 
-<p>In addition to making the data more accessible, we need a flexible framework for data quality reporting.  The assortment of stats presented here are just the tip of the iceberg.  The analysis really falls into two categories:  A measure of the data, and a measure of the community.  A snapshot in time cannot capture everything we want to know about the data in the same way a snapshot communicates for other data sources because OpenStreetMap data is far more dynamic and heterogeneous than anything we might try to compare it to.</p>  
+<p>In addition to making the data more accessible, we need a flexible framework for data quality reporting.  The assortment of stats presented here are just the tip of the iceberg.  The analysis really falls into two categories:  A measure of the data, and a measure of the community.  A snapshot in time cannot capture everything we want to know about the data in the same way a snapshot communicates for other data sources because OpenStreetMap data is far more dynamic and heterogeneous than anything we might try to compare it to.</p>  <code><strong>EXCELLENT CLOSE</strong></code>
 
 
 <h3>
