@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>India Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript"
+          src="https://www.google.com/jsapi?autoload={
+            'modules':[{
+              'name':'visualization',
+              'version':'1',
+              'packages':['corechart']
+            }]
+          }"></script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawCurveChart);
+
+      function drawCurveChart() {
+        var data = google.visualization.arrayToDataTable([
+	          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+	          ['2007',  38, 48, 0],
+	          ['2008',  1105, 1443, 912],
+	          ['2009',  3505, 2505, 914],
+	          ['2010',  4264, 5062, 859],
+  		      ['2011',  6133, 5664, 861],
+      		  ['2012',  7723, 10210, 851],
+      		  ['2013',  10135, 12706, 1043],
+      		  ['2014',  10734, 14540, 1090]	
+        ]);
+
+        var options = {
+          title: 'Km of Roads Accumulating Over Time',
+		  hAxis: {
+			title: 'Year'
+		},
+		  vAxis: {
+			title: 'Kilometers'
+		},
+		  lineWidth: 6,
+		  colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          curveType: 'function',
+          legend: { position: 'bottom' }
+		  
+        };
+
+        var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter1.format(data, 1);
+        var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter2.format(data, 2);
+        var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter3.format(data, 3);
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:['corechart', 'bar']});
+      google.setOnLoadCallback(drawVisualizationPercentChange);
+
+      function drawVisualizationPercentChange() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+         ['2008', 2782, 2903, 0],
+         ['2009', 217,  74, .2],
+         ['2010', 22, 102,  -6],
+         ['2011', 44, 12, .3],
+         ['2012', 26, 80, -1],
+         ['2013', 31, 24, 23],
+         ['2014', 6,  14, 4]
+      ]);
+
+      var options = {
+          title : 'Percent Change | Increase or Decrease | Kilometers of Roads',
+          hAxis: {title: 'Year'},
+          vAxis: { viewWindow: { min: -10, max: 220}, format: '#\'%\'', title: 'Percent'},
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'], 
+          legend: { position: 'bottom'}
+        };
+  
+      var formatter1 = new google.visualization.NumberFormat({pattern:'###,###', suffix: '%'});
+        formatter1.format(data, 1);
+      var formatter2 = new google.visualization.NumberFormat({pattern:'###,###', suffix: '%'});
+        formatter2.format(data, 2);
+      var formatter3 = new google.visualization.NumberFormat({pattern:'###,###', suffix: '%'});
+        formatter3.format(data, 3);
+
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_divpc'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawNamedChart);
+
+      function drawNamedChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  1, 50, 0],
+          ['2008',  37, 39, 52],
+          ['2009',  33, 33, 59],
+          ['2010',  36, 24, 73],
+    		  ['2011',  31, 25, 75],
+    		  ['2012',  29, 17, 78],
+    		  ['2013',  25, 16, 67],
+    		  ['2014',  25, 14, 66]	
+        ]);
+
+        var options = {
+          title: 'Percent of Roads with Names, Road Length Accumulating Over Time',
+		  hAxis: {
+			title: 'Year'
+		},
+		  vAxis: {
+			title: 'Percent Named'
+		},
+		  lineWidth: 6,
+		  colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          curveType: 'function',
+          legend: { position: 'bottom' }
+		  
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChartOneways);
+
+      function drawChartOneways() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  0, 0, 0],
+          ['2008',  93, 333, 20],
+          ['2009',  364, 765, 40],
+          ['2010',  577, 1790, 62],
+          ['2011',  659, 1909, 96],
+          ['2012',  890, 2842, 176],
+          ['2013',  1167, 2954, 245],
+          ['2014',  1199, 3296, 291]
+        ]);
+
+        var options = {
+          title: 'Km of Oneway Roads Accumulating Over Time',
+          curveType: 'function',
+          hAxis: {title: 'Year'},
+          vAxis: {title: 'Kilometers'},
+          lineWidth: 6,
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          legend: { position: 'bottom' }
+        };
+
+        var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter1.format(data, 1);
+        var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter2.format(data, 2);
+        var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter3.format(data, 3);
+        
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartOneways'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationBre);
+
+      function drawVisualizationBre() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'First Version Kilometers', 'Subsequent Version Kilometers', 'Count of Segments'],
+         ['2007',  18, 21, 38],
+         ['2008',  252, 852, 1470],
+         ['2009',  1443, 2062, 8339],
+         ['2010',  1688, 2576, 10339],
+         ['2011',  2477, 3656, 18874],
+         ['2012',  2875, 4848, 25074],
+         ['2013',  4015, 6119, 37455],
+         ['2014',  4271, 6462, 41220]
+      ]);
+
+      var options = {
+          title : 'Bengaluru Road Edits: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Kilometers'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Segments'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divbre'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationDrs);
+
+      function drawVisualizationDrs() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'First Version Kilometers', 'Subsequent Version Kilometers', 'Count of Segments'],
+         ['2007',  27, 21, 13],
+         ['2008',  466, 977, 1568],
+         ['2009',  700, 1805, 3280],
+         ['2010',  2226, 2837, 11520],
+         ['2011',  2506, 3158, 13074],
+         ['2012',  5600, 4609, 28183],
+         ['2013',  7021, 5685, 37170],
+         ['2014',  7901, 6639, 43221]
+      ]);
+
+      var options = {
+          title : 'Delhi Road Edits: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Kilometers'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Segments'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divdrs'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationMrs);
+
+      function drawVisualizationMrs() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'First Version Kilometers', 'Subsequent Version Kilometers', 'Count of Segments'],
+         ['2007',  0, 0, 0],
+         ['2008',  813, 99, 8316],
+         ['2009',  528, 386, 6288],
+         ['2010',  270, 589, 3920],
+         ['2011',  222, 639, 3443],
+         ['2012',  186, 665, 2966],
+         ['2013',  222, 821, 3734],
+         ['2014',  253, 836, 3843]
+      ]);
+
+      var options = {
+          title : 'Mumbai Road Edits: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Kilometers'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Segments'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divmrs'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChartBuildingCount);
+
+      function drawChartBuildingCount() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  0, 0, 0],
+          ['2008',  59, 4, 11],
+          ['2009',  215, 191, 270],
+          ['2010',  553, 337, 1363],
+          ['2011',  1549, 1019, 2928],
+          ['2012',  2525, 2055, 2620],
+          ['2013',  3157, 2244, 3317],
+          ['2014',  4541, 2839, 3748]
+        ]);
+
+        var options = {
+          title: 'Buildings Accumulating Over Time',
+          curveType: 'function',
+          hAxis: {title: 'Year'},
+          vAxis: { viewWindow: { min: 0}, title: 'Count of Buildings'},
+          lineWidth: 6,
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          legend: { position: 'bottom' }
+        };
+
+        var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter1.format(data, 1);
+        var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter2.format(data, 2);
+        var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter3.format(data, 3);
+        
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartBuildingCount'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationBBuildings);
+
+      function drawVisualizationBBuildings() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Buildings w/o Addresses', 'Buildings w/ Addresses', 'Total Area of Buildings'],
+         ['2007', 0, 0, 0],
+         ['2008',  59, 0, 257],
+         ['2009',  215, 0, 612],
+         ['2010',  535, 18, 2168],
+         ['2011',  1353, 196, 6904],
+         ['2012', 2190, 335, 7578],
+         ['2013', 2609, 548, 7963],
+         ['2014', 3846, 695, 8479]
+      ]);
+
+      var options = {
+          title : 'Bengaluru Buildings: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Buildings'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Area'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divbb'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationDBuildings);
+
+      function drawVisualizationDBuildings() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Buildings w/o Addresses', 'Buildings w/ Addresses', 'Total Area of Buildings'],
+         ['2007', 0, 0, 0],
+         ['2008',  4,0,14],
+         ['2009',  89,102,2012],
+         ['2010',  226,111,3571],
+         ['2011',  875,144,4949],
+         ['2012', 1857,198,6756],
+         ['2013', 2013,231,8454],
+         ['2014', 2484,355,7129]
+      ]);
+
+      var options = {
+          title : 'Delhi Buildings: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Buildings'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Area'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divdb'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualizationMBuildings);
+
+      function drawVisualizationMBuildings() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'Buildings w/o Addresses', 'Buildings w/ Addresses', 'Total Area of Buildings'],
+         ['2007', 0, 0, 0],
+         ['2008',  11,0,96],
+         ['2009',  261,9,381],
+         ['2010',  1352,11,1162],
+         ['2011',  2727,201,2211],
+         ['2012', 2414,206,2501],
+         ['2013', 3098,219,3413],
+         ['2014', 3463,285,3751]
+      ]);
+
+      var options = {
+          title : 'Mumbai Buildings: 2007 - 2014',
+          hAxis: {title: 'Year'},
+          vAxes: {
+          0: { viewWindow: { min: 0}, title: 'Accumulating Buildings'}, 
+          1: { viewWindow: { min: 0}, title: 'Accumulating Area'}
+        },
+          seriesType: 'bars',
+          isStacked: 'true',
+          colors: ['#C0C0C0', '#4682B4', '#191919'], 
+          series: {
+           2: { targetAxisIndex: 1, type: 'line', curveType: 'function', lineWidth: 3, lineDashStyle: [2, 1, 2]}},
+          legend: { position: 'bottom', textStyle: {fontSize: 13}}
+        };
+    var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter1.format(data, 1);
+    var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter2.format(data, 2);
+    var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+    formatter3.format(data, 3);
+    
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_divmb'));
+    chart.draw(data, options);
+  }
+    </script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChartBRoadIntersections);
+
+      function drawChartBRoadIntersections() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  0, 0, 0],
+          ['2008',  0, 0, 0],
+          ['2009',  .12, 1.17, .24],
+          ['2010',  .14, 1.85, 1.01],
+          ['2011',  2.16, 3.79, 1.02],
+          ['2012',  3.63, 4.19, 1.13],
+          ['2013',  6.47, 19.31, 1.39],
+          ['2014',  7.08, 5.30, 1.93]
+        ]);
+
+        var options = {
+          title: 'Km of Roads Intersected by Buildings Over Time',
+          curveType: 'function',
+          hAxis: {title: 'Year'},
+          vAxis: { viewWindow: { min: 0}, title: 'Accumulating Kilometers'},
+          lineWidth: 6,
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          legend: { position: 'bottom' }
+        };
+        
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartBRoadIntersections'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChartbrti);
+        function drawChartbrti() {
+
+            var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Road Type');
+          data.addColumn('number', '2007');
+          data.addColumn('number', '2008');
+          data.addColumn('number', '2009');
+          data.addColumn('number', '2010');
+          data.addColumn('number', '2011');
+          data.addColumn('number', '2012');
+          data.addColumn('number', '2013');
+          data.addColumn('number', '2014');
+          data.addRows([
+        ['Primary', 0, 0, 0, 0, .02, .28, 0, .3],
+        ['Secondary', 0, 0, 0, 0, .02, 0, .6, .49],
+        ['Tertiary', 0, 0, .01, .01, .01, .03, .15, .47],
+        ['Residential or Service', 0, 0, 0.11, 0.13, 1.95, 2.74, 4.20, 3.74],
+        ['Unclassified', 0, 0, 0, 0, 0, 0.08, 0.44, 0.87]
+          ]);
+
+            var options = {
+                title: 'Bengaluru Road Types, Intersected by Buildings: 2007 - 2014',
+                vAxis: {title: 'Kilometers'},
+                hAxis: {title: 'Type of Road'},
+            isStacked: true,
+            colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_divbrti'));
+
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChartdrti);
+        function drawChartdrti() {
+
+            var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Road Type');
+          data.addColumn('number', '2007');
+          data.addColumn('number', '2008');
+          data.addColumn('number', '2009');
+          data.addColumn('number', '2010');
+          data.addColumn('number', '2011');
+          data.addColumn('number', '2012');
+          data.addColumn('number', '2013');
+          data.addColumn('number', '2014');
+          data.addRows([
+        ['Primary', 0, 0, 0, .26, .26, 0, 1.56, 0],
+        ['Secondary', 0, 0, 0, .32, .66, 1.11, 1.75, 1.35],
+        ['Tertiary', 0, 0, .37, .36, .35, .28, 1.36, .23],
+        ['Residential or Service', 0, 0, 0.76, 0.80, 0.86, 1.95, 12.78, 2.83],
+        ['Unclassified', 0, 0, 0, 0.06, 0.06, 0, 1.05, 0.15]
+          ]);
+
+            var options = {
+                title: 'Delhi Road Types, Intersected by Buildings: 2007 - 2014',
+                vAxis: {title: 'Kilometers'},
+                hAxis: {title: 'Type of Road'},
+            isStacked: true,
+            colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_divdrti'));
+
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChartmrti);
+        function drawChartmrti() {
+
+            var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Road Type');
+          data.addColumn('number', '2007');
+          data.addColumn('number', '2008');
+          data.addColumn('number', '2009');
+          data.addColumn('number', '2010');
+          data.addColumn('number', '2011');
+          data.addColumn('number', '2012');
+          data.addColumn('number', '2013');
+          data.addColumn('number', '2014');
+          data.addRows([
+        ['Primary', 0, 0, 0, .05, .04, 0, .05, .05],
+        ['Secondary', 0, 0, .01, 0, 0, 0, .11, .26],
+        ['Tertiary', 0, 0, 0, 0, .03, 0, 0, .25], 
+        ['Residential or Service', 0, 0, 0.08, 0.50, 0.52, 0.69, 0.69, 0.80],
+        ['Unclassified', 0, 0, 0.15, 0.11, 0.06, 0.07, 0.10, 0.06]
+          ]);
+
+            var options = {
+                title: 'Mumbai Road Types, Intersected by Buildings: 2007 - 2014',
+                vAxis: {title: 'Kilometers'},
+                hAxis: {title: 'Type of Road'},
+            isStacked: true,
+            colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_divmrti'));
+
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChartPOICount);
+
+      function drawChartPOICount() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Bengaluru', 'Delhi', 'Mumbai'],
+          ['2007',  5, 0, 0],
+          ['2008',  274, 501, 184],
+          ['2009',  1277, 1094, 216],
+          ['2010',  2389, 1581, 453],
+          ['2011',  5343, 2028, 522],
+          ['2012',  6871, 2902, 572],
+          ['2013',  9737, 3345, 818],
+          ['2014',  10639, 3958, 850]
+        ]);
+
+        var options = {
+          title: 'Points of Interest Tags Accumulating Over Time',
+          curveType: 'function',
+          hAxis: {title: 'Year'},
+          vAxis: { viewWindow: { min: 0}, title: 'Count'},
+          lineWidth: 6,
+          colors: ['#e0f3db', '#a8ddb5', '#43a2ca'],
+          legend: { position: 'bottom' }
+        };
+
+        var formatter1 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter1.format(data, 1);
+        var formatter2 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter2.format(data, 2);
+        var formatter3 = new google.visualization.NumberFormat({pattern:'###,###'});
+        formatter3.format(data, 3);
+        
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartPOICount'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+	        data.addColumn('string', 'POI Type');
+    			data.addColumn('number', '2007');
+    			data.addColumn('number', '2008');
+    			data.addColumn('number', '2009');
+    			data.addColumn('number', '2010');
+    			data.addColumn('number', '2011');
+	        data.addColumn('number', '2012');
+	        data.addColumn('number', '2013');
+			    data.addColumn('number', '2014');
+	        data.addRows([
+			  ['Aeroway', 1, 2, 4, 5, 8, 9, 11, 11],
+			  ['Amenity', 0, 154, 638, 1282, 2965, 3752, 4465, 4983],
+			  ['Barrier', 0, 0, 47, 103, 176, 276, 360, 395],
+			  ['Highway', 4, 81, 374, 533, 709, 984, 2514, 2557],
+			  ['Historic', 0, 0, 1, 3, 12, 16, 18, 21],
+			  ['Leisure', 0, 2, 9, 19, 66, 78, 106, 110],
+			  ['Man Made', 0, 0, 26, 48, 66, 69, 80, 85],
+			  ['Natural', 0, 0, 3, 6, 89, 93, 282, 303],
+			  ['Railway', 0, 5, 32, 72, 131, 188, 171, 168],
+			  ['Shop', 0, 23, 82, 214, 951, 1201, 1499, 1766],
+			  ['Tourism', 0, 7, 61, 104, 170, 205, 231, 240], 
+			  ['Waterway', 0, 0, 0, 0, 0, 0, 0, 0]
+	        ]);
+
+            var options = {
+                title: 'Bengaluru Edits to POI Tags: 2007 - 2014',
+                vAxis: {title: 'Accumulated POI Tags'},
+		        isStacked: true,
+		        colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+
+        }
+        google.load('visualization', '1',
+                {'packages': ['annotatedtimeline', 'corechart']});
+
+
+
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart2);
+        function drawChart2() {
+
+            var data = new google.visualization.DataTable();
+	        data.addColumn('string', 'POI Type');
+    			data.addColumn('number', '2007');
+    			data.addColumn('number', '2008');
+    			data.addColumn('number', '2009');
+    			data.addColumn('number', '2010');
+    			data.addColumn('number', '2011');
+	        data.addColumn('number', '2012');
+	        data.addColumn('number', '2013');
+			    data.addColumn('number', '2014');
+	        data.addRows([
+			  ['Aeroway', 0, 1, 1, 2, 10, 58, 58, 58],
+			  ['Amenity', 0, 167, 362, 532, 745, 995, 1182, 1309],
+			  ['Barrier', 0, 0, 52, 67, 115, 143, 170, 207],
+			  ['Highway', 0, 283, 409, 515, 557, 682, 713, 785],
+			  ['Historic', 0, 2, 8, 27, 37, 39, 49, 133],
+			  ['Leisure', 0, 4, 14, 11, 20, 24, 65, 66],
+			  ['Man Made', 0, 1, 2, 11, 45, 109, 117, 135],
+			  ['Natural', 0, 0, 54, 54, 64, 81, 138, 286],
+			  ['Railway', 0, 20, 102, 235, 236, 469, 491, 576],
+			  ['Shop', 0, 23, 82, 214, 951, 1201, 1499, 1766],
+			  ['Tourism', 0, 17, 35, 54, 100, 188, 232, 262], 
+			  ['Waterway', 0, 0, 0, 0, 0, 0, 0, 0]
+	        ]);
+			
+
+            var options = {
+                title: 'Delhi Edits to POI Tags: 2007 - 2014',
+                vAxis: {title: 'Accumulated POI Tags'},
+		        isStacked: true,
+		        colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+
+            chart.draw(data, options);
+
+        }
+		google.load('visualization', '1',
+                {'packages': ['annotatedtimeline', 'corechart']});
+
+
+
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart3);
+        function drawChart3() {
+
+            var data = new google.visualization.DataTable();
+	        data.addColumn('string', 'POI Type');
+    			data.addColumn('number', '2007');
+    			data.addColumn('number', '2008');
+    			data.addColumn('number', '2009');
+    			data.addColumn('number', '2010');
+    			data.addColumn('number', '2011');
+	        data.addColumn('number', '2012');
+	        data.addColumn('number', '2013');
+			    data.addColumn('number', '2014');
+	        data.addRows([
+			  ['Aeroway', 0, 0, 0, 4, 3, 3, 3, 3],
+			  ['Amenity', 0, 179, 152, 282, 289, 298, 346, 372],
+			  ['Barrier', 0, 0, 17, 32, 36, 38, 38, 44],
+			  ['Highway', 0, 2, 11, 21, 43, 59, 148, 172],
+			  ['Historic', 0, 0, 2, 9, 10, 10, 13, 14],
+			  ['Leisure', 0, 0, 2, 4, 5, 5, 6, 15],
+			  ['Man Made', 0, 0, 0, 0, 0, 0, 1, 1],
+			  ['Natural', 0, 0, 1, 2, 2, 6, 34, 35],
+			  ['Railway', 0, 1, 11, 54, 83, 87, 128, 82],
+			  ['Shop', 0, 0, 5, 15, 21, 26, 50, 60],
+			  ['Tourism', 0, 2, 13, 28, 28, 38, 49, 50], 
+			  ['Waterway', 0, 0, 2, 2, 2, 2, 2, 2]
+	        ]);
+			
+
+            var options = {
+                title: 'Mumbai Edits to POI Tags: 2007 - 2014',
+                vAxis: {title: 'Accumulated POI Tags'},
+		        isStacked: true,
+		        colors: ['#014636', '#016c59', '#02818a', '#3690c0', '#67a9cf', '#a6bddb', '#d0d1e6', '#ece2f0'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div3'));
+
+            chart.draw(data, options);
+		}
+		google.load('visualization', '1',
+				{'packages': ['annotatedtimeline', 'corechart']});
+
+    </script>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["treemap"]});
+      google.setOnLoadCallback(drawChartBtree);
+      function drawChartBtree() {
+        var data = google.visualization.arrayToDataTable([
+          ['Location', 'in Bengaluru, years 2007 - 2014', 'POIs Edited'],
+          ['Bengaluru', null, 0],
+          ['Gururaja Upadhyaya','Bengaluru',1697],
+          ['Oberaffe','Bengaluru',1492],
+          ['PlaneMad','Bengaluru',786],
+          ['Nand Kishore Gupta','Bengaluru',670],
+          ['docaneesh','Bengaluru',665],
+          ['user_634020','Bengaluru',597],
+          ['BlueTiger','Bengaluru',507],
+          ['Sandeep Nayak','Bengaluru',500],
+          ['Ashish Vijayaram','Bengaluru',374],
+          ['BSR','Bengaluru',242],
+          ['Ashim','Bengaluru',215],
+          ['Ashvini Kumar','Bengaluru',191],
+          ['MadhanBabu','Bengaluru',184],
+          ['Nagesh_Blr','Bengaluru',161],
+          ['indigomc','Bengaluru',141],
+          ['shijo','Bengaluru',118],
+          ['Deepa V','Bengaluru',103],
+          ['Guillaume Audirac','Bengaluru',100],
+          ['naanu vijay','Bengaluru',95],
+          ['janvpi','Bengaluru',86],
+          ['Samuel Rajkumar','Bengaluru',81],
+          ['BuganiniQ','Bengaluru',81],
+          ['Lakshmi','Bengaluru',77],
+          ['Byung Kyu Park','Bengaluru',76],
+          ['Praveen','Bengaluru',50],
+          ['Jaegermeister','Bengaluru',49],
+          ['OSMF Redaction Account','Bengaluru',48],
+          ['bkowshik','Bengaluru',47],
+          ['chatman','Bengaluru',45],
+          ['Saikat','Bengaluru',43],
+          ['Deepthi Kalku','Bengaluru',42],
+          ['Nithin Raju','Bengaluru',41],
+          ['Sriranjan','Bengaluru',37],
+          ['manukp','Bengaluru',35],
+          ['sharath','Bengaluru',35],
+          ['Arunasank','Bengaluru',33],
+          ['xybot','Bengaluru',33],
+          ['Pravin','Bengaluru',31],
+          ['Shankar','Bengaluru',31],
+          ['SrikanthLogic','Bengaluru',31],
+          ['BabuSudhakar','Bengaluru',31],
+          ['ThejeshGN','Bengaluru',30],
+          ['Shivanand Kumbar','Bengaluru',29],
+          ['Aniline','Bengaluru',29],
+          ['Manu1400','Bengaluru',29],
+          ['Jaiprakash','Bengaluru',28],
+          ['nevy','Bengaluru',28],
+          ['Nithin K','Bengaluru',26],
+          ['Vivek Vijayan','Bengaluru',26],
+          ['Sreehari M','Bengaluru',26],
+          ['RBEI-ArunKumar','Bengaluru',26],
+          ['jmurthy','Bengaluru',25],
+          ['v73p','Bengaluru',25],
+          ['wheelmap_visitor','Bengaluru',24],
+          ['varuntayur','Bengaluru',23],
+          ['Imad','Bengaluru',23],
+          ['sissou','Bengaluru',23],
+          ['Jayanta','Bengaluru',23],
+          ['suhassr','Bengaluru',23],
+          ['rrs5','Bengaluru',22],
+          ['preethamdk','Bengaluru',22],
+          ['9porcupine','Bengaluru',22],
+          ['Walter Schlögl','Bengaluru',22],
+          ['lxbarth','Bengaluru',22],
+          ['anandsesh','Bengaluru',21],
+          ['richlv','Bengaluru',20],
+          ['PraveenK','Bengaluru',20],
+          ['subramanyamn','Bengaluru',20],
+          ['Arthi','Bengaluru',20],
+          ['srinak47','Bengaluru',20],
+          ['albertkun','Bengaluru',20],
+          ['Chaitanya_Bhagvan','Bengaluru',19],
+          ['Abhijit Potnis','Bengaluru',19],
+          ['aceman444','Bengaluru',18],
+          ['R K Shenoy','Bengaluru',18],
+          ['Achi!!3$','Bengaluru',17],
+          ['Vignesh Prabhu','Bengaluru',17],
+          ['lowtech','Bengaluru',16],
+          ['Harikiran Alapati','Bengaluru',16],
+          ['Surag MP','Bengaluru',16],
+          ['cgu66','Bengaluru',15],
+          ['Avinash_Patil','Bengaluru',14],
+          ['yogi_ks','Bengaluru',14],
+          ['Charles Rose','Bengaluru',14],
+          ['Amitesh Bharti','Bengaluru',14],
+          ['Sudhira','Bengaluru',14],
+          ['mixdev','Bengaluru',14],
+          ['morray','Bengaluru',13],
+          ['samit_53','Bengaluru',13],
+          ['bant92','Bengaluru',12],
+          ['Vivek Jain','Bengaluru',12],
+          ['Vimalanandan S','Bengaluru',12],
+          ['HimanshuAgarwal','Bengaluru',12],
+          ['6laz3r','Bengaluru',12],
+          ['AnnaDey','Bengaluru',11],
+          ['Kiran Makam','Bengaluru',11],
+          ['Pradeep Rao','Bengaluru',11],
+          ['HHCacher','Bengaluru',11],
+          ['Jeshwanth Kumar N K','Bengaluru',11],
+          ['Vivek KS','Bengaluru',11],
+          ['shvrm','Bengaluru',11],
+          ['Sagar Arlekar','Bengaluru',11],
+          ['danadina','Bengaluru',11],
+          ['SmartF','Bengaluru',11],
+          ['Mordel42','Bengaluru',10],
+          ['Sandeep Mohanty','Bengaluru',10],
+          ['osmr','Bengaluru',10],
+          ['Jerry mannel','Bengaluru',10],
+          ['Devdatta','Bengaluru',10],
+          ['Sharique Muzaffar','Bengaluru',10],
+          ['rohithns','Bengaluru',10],
+          ['Kautilya','Bengaluru',10],
+          ['fjklw8wfycv','Bengaluru',9],
+          ['santjohn','Bengaluru',9],
+          ['Sriniketana','Bengaluru',9],
+          ['the100rabh','Bengaluru',9],
+          ['Abhijith Aithal','Bengaluru',9],
+          ['rrjois','Bengaluru',9],
+          ['Gururaja KV','Bengaluru',9],
+          ['abyclassic','Bengaluru',9],
+          ['inosaint','Bengaluru',8],
+          ['raghothams','Bengaluru',8],
+          ['muscicapa','Bengaluru',8],
+          ['Rajath K','Bengaluru',8],
+          ['Bhushan J','Bengaluru',8],
+          ['Kunal Mathur','Bengaluru',8],
+          ['Pradeep B V','Bengaluru',7],
+          ['woodpeck_repair','Bengaluru',7],
+          ['geohacker','Bengaluru',7],
+          ['GTRam','Bengaluru',7],
+          ['Ganapathi','Bengaluru',7],
+          ['Sathish Babu Saravanan','Bengaluru',7],
+          ['anttit','Bengaluru',7],
+          ['adjuva','Bengaluru',6],
+          ['Jacob Cyriac','Bengaluru',6],
+          ['gumaste','Bengaluru',6],
+          ['mikelmaron','Bengaluru',6],
+          ['BharatKambalur','Bengaluru',6],
+          ['sravya','Bengaluru',6],
+          ['dhruvdeshmukh','Bengaluru',6],
+          ['Janastu','Bengaluru',6],
+          ['Sreeja','Bengaluru',6],
+          ['HellSlyne','Bengaluru',6],
+          ['amiy','Bengaluru',6],
+          ['Nayvik','Bengaluru',6],
+          ['சரவண பவன்','Bengaluru',6],
+          ['Saikrishna','Bengaluru',6],
+          ['bhuvana','Bengaluru',6],
+          ['Ravindra045','Bengaluru',6],
+          ['Jagadish N','Bengaluru',5],
+          ['Mallik','Bengaluru',5],
+          ['rbadrinath','Bengaluru',5],
+          ['siva kumar','Bengaluru',5],
+          ['dannykath','Bengaluru',5],
+          ['Tanoy Bose','Bengaluru',5],
+          ['DeepuVS','Bengaluru',5],
+          ['howowa','Bengaluru',5],
+          ['Dinesh R','Bengaluru',5],
+          ['ngrjs','Bengaluru',5],
+          ['yvPramod','Bengaluru',5],
+          ['preethamrk','Bengaluru',5],
+          ['punith','Bengaluru',5],
+          ['Krishnan Dasan','Bengaluru',5],
+          ['som_p','Bengaluru',5],
+          ['Arvind_k','Bengaluru',5],
+          ['usor','Bengaluru',5],
+          ['joe_d5','Bengaluru',5],
+          ['RAJU KEMP','Bengaluru',5],
+          ['vinu_h','Bengaluru',4],
+          ['alester','Bengaluru',4],
+          ['Shashi Ranjan','Bengaluru',4],
+          ['lesko987','Bengaluru',4],
+          ['jeethu','Bengaluru',4],
+          ['Saro2233','Bengaluru',4],
+          ['Param Aggarwal','Bengaluru',4],
+          ['arunisaac','Bengaluru',4],
+          ['Venkatesh Seshasayee','Bengaluru',4],
+          ['Sumanta Bag','Bengaluru',4],
+          ['Markus59','Bengaluru',4],
+          ['MartyD','Bengaluru',4],
+          ['Josef73','Bengaluru',4],
+          ['Abilashjram','Bengaluru',4],
+          ['SathishG','Bengaluru',4],
+          ['gormur','Bengaluru',4],
+          ['ESAF Bangalore','Bengaluru',4],
+          ['Ganesh prabhu','Bengaluru',4],
+          ['Kaushikp16','Bengaluru',4],
+          ['H_S_Rai','Bengaluru',4],
+          ['ideamonk','Bengaluru',4],
+          ['parambyte','Bengaluru',4],
+          ['raysaikat','Bengaluru',4],
+          ['Anil Mohitay','Bengaluru',4],
+          ['Vikas S Murthy','Bengaluru',4],
+          ['BharathBS','Bengaluru',4],
+          ['Suvajit','Bengaluru',4],
+          ['Deekshith','Bengaluru',4],
+          ['appu','Bengaluru',3],
+          ['Muralirj','Bengaluru',3],
+          ['Anuj Gupta','Bengaluru',3],
+          ['Murali Krishna Kunapareddy','Bengaluru',3],
+          ['doubleohseven','Bengaluru',3],
+          ['rajasurdas','Bengaluru',3],
+          ['Nithin Ramakrishna','Bengaluru',3],
+          ['Rak','Bengaluru',3],
+          ['Kalz8','Bengaluru',3],
+          ['TrueAmigo','Bengaluru',3],
+          ['ThinkingMonkey','Bengaluru',3],
+          ['MatthieuMartin','Bengaluru',3],
+          ['chiranjeevi','Bengaluru',3],
+          ['Hamza Omar','Bengaluru',3],
+          ['sarayunar','Bengaluru',3],
+          ['adivik2000','Bengaluru',3],
+          ['skopal','Bengaluru',3],
+          ['siddu6095','Bengaluru',3],
+          ['Hemsat','Bengaluru',3],
+          ['kprateek88','Bengaluru',3],
+          ['arindam','Bengaluru',3],
+          ['tsk1979','Bengaluru',3],
+          ['debanjanray2003','Bengaluru',3],
+          ['Chetan Vaity','Bengaluru',3],
+          ['ArunDKumar','Bengaluru',3],
+          ['FranBoon','Bengaluru',3],
+          ['quazgar','Bengaluru',3],
+          ['AmitPrem','Bengaluru',3],
+          ['Geogast','Bengaluru',3],
+          ['ToniE','Bengaluru',3],
+          ['jagadishp','Bengaluru',3],
+          ['ganesh123','Bengaluru',3],
+          ['silversurferablaze','Bengaluru',3],
+          ['guru n','Bengaluru',3],
+          ['sameer123','Bengaluru',3],
+          ['JIthin G','Bengaluru',3],
+          ['pushkarv','Bengaluru',3],
+          ['tantragna','Bengaluru',3],
+          ['Jake Strine','Bengaluru',3],
+          ['Sharath Soman','Bengaluru',3],
+          ['iambibhas','Bengaluru',3],
+          ['uprasad','Bengaluru',3],
+          ['ALu68','Bengaluru',3],
+          ['Gowthaman','Bengaluru',3],
+          ['Rovastar','Bengaluru',3],
+          ['afolly','Bengaluru',3],
+          ['synalik','Bengaluru',3],
+          ['vinothini','Bengaluru',3],
+          ['Trishy','Bengaluru',3],
+          ['arkrishn','Bengaluru',3],
+          ['sridharma','Bengaluru',2],
+          ['AbhijeetRane','Bengaluru',2],
+          ['Sanjesh','Bengaluru',2],
+          ['etern4lflux','Bengaluru',2],
+          ['kspai','Bengaluru',2],
+          ['osmolaf','Bengaluru',2],
+          ['Aubanel','Bengaluru',2],
+          ['shacks','Bengaluru',2],
+          ['kklindor21','Bengaluru',2],
+          ['Sumedha Mathad','Bengaluru',2],
+          ['phishbones','Bengaluru',2],
+          ['V Sridhar','Bengaluru',2],
+          ['Ivolino','Bengaluru',2],
+          ['masterg0g0','Bengaluru',2],
+          ['Brajmohan Papneja','Bengaluru',2],
+          ['highabove11','Bengaluru',2],
+          ['Titas','Bengaluru',2],
+          ['rajiv ha','Bengaluru',2],
+          ['Rafeeqnk','Bengaluru',2],
+          ['me too','Bengaluru',2],
+          ['sat987','Bengaluru',2],
+          ['laxmi','Bengaluru',2],
+          ['rttlesnke','Bengaluru',2],
+          ['Jerringeorge','Bengaluru',2],
+          ['sarimaadu','Bengaluru',2],
+          ['DarthVeda','Bengaluru',2],
+          ['jkoshy','Bengaluru',2],
+          ['SkdMrk','Bengaluru',2],
+          ['wieland','Bengaluru',2],
+          ['GopiGis','Bengaluru',2],
+          ['ashok_vlsi','Bengaluru',2],
+          ['Anushka731','Bengaluru',2],
+          ['H2Nut','Bengaluru',2],
+          ['Head','Bengaluru',2],
+          ['andygol','Bengaluru',2],
+          ['Purushottam_Dewang','Bengaluru',2],
+          ['Babu Annamalai','Bengaluru',2],
+          ['saneef','Bengaluru',2],
+          ['A Ajit','Bengaluru',2],
+          ['Subbaraman','Bengaluru',2],
+          ['vaani','Bengaluru',2],
+          ['Gangarams','Bengaluru',2],
+          ['Djizeus','Bengaluru',2],
+          ['Alexander Hunziker','Bengaluru',2],
+          ['jackol','Bengaluru',2],
+          ['shriourav','Bengaluru',2],
+          ['Madavan','Bengaluru',2],
+          ['DJois','Bengaluru',2],
+          ['GayaMan','Bengaluru',2],
+          ['Kilari','Bengaluru',2],
+          ['Rub21','Bengaluru',2],
+          ['Jim Cherian','Bengaluru',2],
+          ['cquest','Bengaluru',2],
+          ['Bhavin','Bengaluru',2],
+          ['Grow Square Technologies','Bengaluru',2],
+          ['Immanueldorai','Bengaluru',2],
+          ['vAnubhav','Bengaluru',2],
+          ['Yogesha  L','Bengaluru',2],
+          ['Srivatsava','Bengaluru',2],
+          ['durk366','Bengaluru',2],
+          ['Amju','Bengaluru',2],
+          ['Niket Narang','Bengaluru',2],
+          ['HoloDuke','Bengaluru',2],
+          ['lalitha kamath','Bengaluru',2],
+          ['SathyaBhat','Bengaluru',2],
+          ['perlbaer','Bengaluru',2],
+          ['sroycode','Bengaluru',2],
+          ['Rahul Patil','Bengaluru',2],
+          ['saurabhinhyd','Bengaluru',2],
+          ['Srinivas G','Bengaluru',2],
+          ['talktokalyan','Bengaluru',2],
+          ['Piet Moeleker','Bengaluru',2],
+          ['Pranesh Prakash','Bengaluru',2],
+          ['Ganesh Kudva Karkala','Bengaluru',2],
+          ['KaranTechie','Bengaluru',2],
+          ['ashokiisc','Bengaluru',2],
+          ['AniVar','Bengaluru',2],
+          ['GWGreen','Bengaluru',2],
+          ['Bipin','Bengaluru',2],
+          ['maddanna','Bengaluru',2],
+          ['Pallavi Satish','Bengaluru',1],
+          ['Math1985','Bengaluru',1],
+          ['ANCF','Bengaluru',1],
+          ['Rajnag','Bengaluru',1],
+          ['BheemaUpadhyaya','Bengaluru',1],
+          ['Kousik Nandy','Bengaluru',1],
+          ['apm-wa','Bengaluru',1],
+          ['Prasadh','Bengaluru',1],
+          ['ch4nd4n','Bengaluru',1],
+          ['vkvora','Bengaluru',1],
+          ['Suni17','Bengaluru',1],
+          ['priya','Bengaluru',1],
+          ['satyaakam','Bengaluru',1],
+          ['LARAMAN','Bengaluru',1],
+          ['chetangp_3','Bengaluru',1],
+          ['Gopinath Gopalan','Bengaluru',1],
+          ['wvdp','Bengaluru',1],
+          ['VarunL','Bengaluru',1],
+          ['manu mathew','Bengaluru',1],
+          ['Ashraf Hussain','Bengaluru',1],
+          ['Prashanthds','Bengaluru',1],
+          ['som','Bengaluru',1],
+          ['Ilayaraja','Bengaluru',1],
+          ['Nandeesh','Bengaluru',1],
+          ['venkram','Bengaluru',1],
+          ['hasienda','Bengaluru',1],
+          ['virals','Bengaluru',1],
+          ['Barkha123','Bengaluru',1],
+          ['varkey','Bengaluru',1],
+          ['Madowatt','Bengaluru',1],
+          ['karunakar','Bengaluru',1],
+          ['Shantanu Agrawal','Bengaluru',1],
+          ['ilike_cheez','Bengaluru',1],
+          ['Strydon','Bengaluru',1],
+          ['Murugu','Bengaluru',1],
+          ['Sandeepps','Bengaluru',1],
+          ['Ajai','Bengaluru',1],
+          ['Tekuri Sreenivasulu','Bengaluru',1],
+          ['Fabi2','Bengaluru',1],
+          ['amit26feb','Bengaluru',1],
+          ['lawgoff','Bengaluru',1],
+          ['hjmaps','Bengaluru',1],
+          ['masarap','Bengaluru',1],
+          ['muralimailbox','Bengaluru',1],
+          ['manuif','Bengaluru',1],
+          ['Kamal Nath N','Bengaluru',1],
+          ['pizote','Bengaluru',1],
+          ['dockers','Bengaluru',1],
+          ['v1kram','Bengaluru',1],
+          ['Haji','Bengaluru',1],
+          ['Hotel Royal Comfort','Bengaluru',1],
+          ['staehler','Bengaluru',1],
+          ['iLuvIPA','Bengaluru',1],
+          ['Bene Joseph','Bengaluru',1],
+          ['prabhasp','Bengaluru',1],
+          ['csshreyas','Bengaluru',1],
+          ['vaamarnath','Bengaluru',1],
+          ['Vishal Batra','Bengaluru',1],
+          ['Siddhanathan','Bengaluru',1],
+          ['AnishVK','Bengaluru',1],
+          ['Vishwasinbox','Bengaluru',1],
+          ['parukhin','Bengaluru',1],
+          ['OPerivar','Bengaluru',1],
+          ['nainishb','Bengaluru',1],
+          ['Rahul Gangwar','Bengaluru',1],
+          ['FvGordon','Bengaluru',1],
+          ['PrarthanaWadhwani','Bengaluru',1],
+          ['Snoopy88','Bengaluru',1],
+          ['skrao','Bengaluru',1],
+          ['Sarab_Singh','Bengaluru',1],
+          ['dhyani','Bengaluru',1],
+          ['RainerWasserfuhr','Bengaluru',1],
+          ['prashroams','Bengaluru',1],
+          ['shardha h','Bengaluru',1],
+          ['Vidya Mohan','Bengaluru',1],
+          ['jaredc','Bengaluru',1],
+          ['vickeyvivek','Bengaluru',1],
+          ['sunilpichamuthu','Bengaluru',1],
+          ['donaciano','Bengaluru',1],
+          ['sivasai','Bengaluru',1],
+          ['drummer83','Bengaluru',1],
+          ['Jayaprakash C','Bengaluru',1],
+          ['Pavanred','Bengaluru',1],
+          ['Suj007','Bengaluru',1],
+          ['Vineet M S','Bengaluru',1],
+          ['Seshadri','Bengaluru',1],
+          ['chandusekharreddy','Bengaluru',1],
+          ['naveenpf','Bengaluru',1],
+          ['snikhil','Bengaluru',1],
+          ['Saju Mathew','Bengaluru',1],
+          ['mjulius','Bengaluru',1],
+          ['Rajasekhar','Bengaluru',1],
+          ['Anushree15','Bengaluru',1],
+          ['khansjak','Bengaluru',1],
+          ['idontspam','Bengaluru',1],
+          ['kcpradeep','Bengaluru',1],
+          ['vbhv','Bengaluru',1],
+          ['Roshinpv','Bengaluru',1],
+          ['Suresh Samuel','Bengaluru',1],
+          ['Kishore Murthy','Bengaluru',1],
+          ['zugunruhe','Bengaluru',1],
+          ['EddieB','Bengaluru',1],
+          ['vikesh','Bengaluru',1],
+          ['Ajay Sharma','Bengaluru',1],
+          ['khazvini22','Bengaluru',1],
+          ['Srivatsa Haridas','Bengaluru',1],
+          ['vinnyalex','Bengaluru',1],
+          ['Javeed Ahmed','Bengaluru',1],
+          ['pluday','Bengaluru',1],
+          ['solomonvimal','Bengaluru',1],
+          ['kundum santosh','Bengaluru',1],
+          ['thevikas','Bengaluru',1],
+          ['Jeet','Bengaluru',1],
+          ['Bryce C Nesbitt','Bengaluru',1],
+          ['pvm_carto','Bengaluru',1],
+          ['appface','Bengaluru',1],
+          ['chdr','Bengaluru',1],
+          ['jgpacker','Bengaluru',1],
+          ['joshuarrrr','Bengaluru',1],
+          ['BB__','Bengaluru',1],
+          ['bkk','Bengaluru',1],
+          ['Rush0000','Bengaluru',1],
+          ['aakashratkal','Bengaluru',1],
+          ['hefmar','Bengaluru',1],
+          ['amber pawar','Bengaluru',1],
+          ['Velu','Bengaluru',1],
+          ['rajeshchinnakonda','Bengaluru',1],
+          ['d4dpak','Bengaluru',1],
+          ['Yuvaraj Nagarajan','Bengaluru',1],
+          ['Sanjay Mehta','Bengaluru',1],
+          ['VinayaKT','Bengaluru',1],
+          ['Praveen Patel','Bengaluru',1],
+          ['vegpuff','Bengaluru',1],
+          ['Love Makers Club','Bengaluru',1],
+          ['Farman','Bengaluru',1],
+          ['Josay','Bengaluru',1],
+          ['Jarl Arntzen','Bengaluru',1],
+          ['Abhijit Sinha','Bengaluru',1],
+          ['cyclejangama','Bengaluru',1],
+          ['Mohan lal','Bengaluru',1],
+          ['varshita','Bengaluru',1],
+          ['joylita','Bengaluru',1],
+          ['asquiz','Bengaluru',1],
+          ['Rajesh Omkarmurthy','Bengaluru',1],
+          ['venkatesh-Elintsys','Bengaluru',1],
+          ['Gautham PJ','Bengaluru',1],
+          ['Maryselva','Bengaluru',1],
+          ['Surabhi','Bengaluru',1],
+          ['BiIbo','Bengaluru',1],
+          ['Aseem','Bengaluru',1],
+          ['vishal93','Bengaluru',1],
+          ['Ashok Koyi','Bengaluru',1],
+          ['Thenna','Bengaluru',1],
+          ['RSakthivel','Bengaluru',1],
+          ['SaurabhGawande','Bengaluru',1],
+          ['holycow','Bengaluru',1],
+          ['DoubleA','Bengaluru',1],
+          ['Avadhesh_karia','Bengaluru',1],
+          ['anilva','Bengaluru',1],
+          ['Vikramsw','Bengaluru',1],
+          ['sweekar','Bengaluru',1],
+          ['Sajin','Bengaluru',1],
+          ['krishna76','Bengaluru',1],
+          ['chinmayisk','Bengaluru',1],
+          ['fazeel','Bengaluru',1],
+          ['James Livingston','Bengaluru',1],
+          ['Shibu TN','Bengaluru',1],
+          ['csp@0nze','Bengaluru',1],
+          ['shashirbabu','Bengaluru',1],
+          ['I Change My City','Bengaluru',1],
+          ['kaushikwipro','Bengaluru',1],
+          ['werner2101','Bengaluru',1],
+          ['cyberkid','Bengaluru',1],
+          ['meppen7','Bengaluru',1],
+          ['RussNelson','Bengaluru',1],
+          ['p_anuram','Bengaluru',1],
+          ['zorthian','Bengaluru',1],
+          ['Jerry G','Bengaluru',1],
+          ['Noorandco','Bengaluru',1],
+          ['rmblr','Bengaluru',1],
+          ['satishkore','Bengaluru',1],
+          ['Theodin','Bengaluru',1],
+          ['Ganesh Sastry','Bengaluru',1],
+          ['Ashwin_Maps','Bengaluru',1],
+          ['ciclista','Bengaluru',1],
+          ['space_monkey','Bengaluru',1],
+          ['Adhithya Rajagopalan','Bengaluru',1],
+          ['praboo_p','Bengaluru',1],
+          ['Heinz_V','Bengaluru',1],
+          ['anil gandhi','Bengaluru',1],
+          ['El-suizo','Bengaluru',1],
+          ['govil','Bengaluru',1],
+          ['elbatrop','Bengaluru',1],
+          ['e1l52','Bengaluru',1],
+          ['Harshil','Bengaluru',1],
+          ['dforsi','Bengaluru',1]
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_divbtree'));
+
+        tree.draw(data, {
+          highlightOnMouseOver: true,
+          maxDepth: 1,
+          maxPostDepth: 2,
+          minHighlightColor: '#fff7fb',
+          midHighlightColor: '#fff7fb',
+          maxHighlightColor: '#fff7fb',
+          minColor: '#ece2f0',
+          midColor: '#67a9cf',
+          maxColor: '#016c59',
+          headerHeight: 45,
+          fontColor: 'black',
+          showScale: false,
+          generateTooltip: showFullTooltip
+        });
+
+        function showFullTooltip(row, size, value) {
+    return '<div style="background:#fff7fb; padding:10px; border-style:solid">' +
+           '<span style="font-family:Helvetica Neue"><b>' + data.getValue(row, 0) +
+           '</b>, '   + '</span><br>' +
+           data.getColumnLabel(2) +
+           ' (all types): ' + size + '<br>' +
+           data.getColumnLabel(1)   + ' </div>';
+  }
+
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["treemap"]});
+      google.setOnLoadCallback(drawChartDtree);
+      function drawChartDtree() {
+        var data = google.visualization.arrayToDataTable([
+          ['Location', 'in Delhi, years 2007 - 2014', 'POIs Edited'],
+          ['Delhi', null, 0],
+          ['Oberaffe','Delhi',6211],
+          ['n\'garh','Delhi',613],
+          ['thevikas','Delhi',363],
+          ['PlaneMad','Delhi',250],
+          ['zezo\'s frnd','Delhi',155],
+          ['mailsandeepdagar','Delhi',148],
+          ['marek kleciak','Delhi',142],
+          ['Edolis','Delhi',78],
+          ['Rajchandar Padmanaban','Delhi',71],
+          ['shalabh','Delhi',68],
+          ['CloCkWeRX','Delhi',54],
+          ['abhinavc','Delhi',50],
+          ['Nishant Sharma','Delhi',44],
+          ['malenki','Delhi',43],
+          ['synalik','Delhi',37],
+          ['Jitin Kumar','Delhi',36],
+          ['Jaegermeister','Delhi',34],
+          ['Sanjeev Hariharan','Delhi',33],
+          ['Serpens','Delhi',29],
+          ['richlv','Delhi',25],
+          ['shvrm','Delhi',22],
+          ['Dhruv','Delhi',20],
+          ['Warin61','Delhi',19],
+          ['Alarion','Delhi',17],
+          ['Nand Kishore Gupta','Delhi',16],
+          ['osm-hft-jun10','Delhi',16],
+          ['eduvivek','Delhi',15],
+          ['robgeb','Delhi',15],
+          ['joost schouppe','Delhi',15],
+          ['ShashankS','Delhi',14],
+          ['AndrewWizit','Delhi',14],
+          ['SusaninM','Delhi',14],
+          ['Rahul Sharma','Delhi',14],
+          ['ViruA','Delhi',13],
+          ['Rohit Rajpal','Delhi',13],
+          ['Shubhangi','Delhi',13],
+          ['greg_maly','Delhi',13],
+          ['apm-wa','Delhi',12],
+          ['laufkaefer','Delhi',12],
+          ['hactar','Delhi',12],
+          ['Shaji Vijay','Delhi',11],
+          ['parambyte','Delhi',10],
+          ['BiIbo','Delhi',10],
+          ['jupiter325','Delhi',10],
+          ['Arvind Rangan','Delhi',10],
+          ['wheelmap_visitor','Delhi',10],
+          ['koakley1972','Delhi',9],
+          ['kprateek88','Delhi',9],
+          ['aftermathbegins','Delhi',9],
+          ['xybot','Delhi',8],
+          ['sesame','Delhi',8],
+          ['Esperanza36','Delhi',8],
+          ['indigomc','Delhi',8],
+          ['Abhishek Gogia','Delhi',7],
+          ['Hartmut Holzgraefe','Delhi',7],
+          ['sashazykov','Delhi',7],
+          ['bintang','Delhi',7],
+          ['majormajor42','Delhi',7],
+          ['cgu66','Delhi',7],
+          ['thepatel','Delhi',7],
+          ['goblinsletterbox','Delhi',7],
+          ['abhinav85','Delhi',7],
+          ['Kashif Haque','Delhi',6],
+          ['GPS-Kurs Uni Muenster','Delhi',6],
+          ['HHCacher','Delhi',6],
+          ['H_S_Rai','Delhi',6],
+          ['Hitesh Kumar','Delhi',6],
+          ['Jorge2000','Delhi',6],
+          ['tsk1979','Delhi',6],
+          ['sniffdiff','Delhi',6],
+          ['SAWRUB','Delhi',6],
+          ['dulcet_bg','Delhi',6],
+          ['Vishnuguptaa','Delhi',6],
+          ['Varun Chadha','Delhi',6],
+          ['_AnkitGupta_','Delhi',6],
+          ['otpidus','Delhi',5],
+          ['swg62','Delhi',5],
+          ['arjund','Delhi',5],
+          ['ibnishak','Delhi',5],
+          ['kuass','Delhi',5],
+          ['matthayichen','Delhi',5],
+          ['rkumar02','Delhi',5],
+          ['geowas','Delhi',4],
+          ['Amardeep','Delhi',4],
+          ['sourabh2910','Delhi',4],
+          ['sachink28','Delhi',4],
+          ['Ramzes','Delhi',4],
+          ['debashis','Delhi',4],
+          ['Gnabholz','Delhi',4],
+          ['Alok sharma','Delhi',4],
+          ['Amitabh Singh','Delhi',4],
+          ['werner2101','Delhi',4],
+          ['matvey_kiev_ua','Delhi',4],
+          ['oligo','Delhi',4],
+          ['Marcussacapuces91','Delhi',4],
+          ['vishwesh','Delhi',4],
+          ['satyaakam','Delhi',3],
+          ['OSMF Redaction Account','Delhi',3],
+          ['AUGUSTACK','Delhi',3],
+          ['roemcke','Delhi',3],
+          ['smsbond','Delhi',3],
+          ['Josef73','Delhi',3],
+          ['stanton','Delhi',3],
+          ['Rohit Jain','Delhi',3],
+          ['BuganiniQ','Delhi',3],
+          ['ead','Delhi',3],
+          ['mitul','Delhi',3],
+          ['Rovastar','Delhi',3],
+          ['Prashant Mukherjee','Delhi',3],
+          ['Aditya Duggal','Delhi',3],
+          ['jaredc','Delhi',3],
+          ['sanju74','Delhi',3],
+          ['sujandeb','Delhi',3],
+          ['anindya911','Delhi',3],
+          ['prateekpanjla','Delhi',3],
+          ['sahil','Delhi',3],
+          ['eumiro','Delhi',3],
+          ['White Light','Delhi',3],
+          ['Sanjeev Singh','Delhi',3],
+          ['IainMaclean','Delhi',3],
+          ['AjayUbbott','Delhi',3],
+          ['axk','Delhi',3],
+          ['Manchanda','Delhi',3],
+          ['elbatrop','Delhi',3],
+          ['Yogesh Girdhar','Delhi',3],
+          ['Wetterfest_33_91','Delhi',2],
+          ['saifi tabrez','Delhi',2],
+          ['Astha','Delhi',2],
+          ['Anshul Goel','Delhi',2],
+          ['Anand Shankar','Delhi',2],
+          ['kwikadi','Delhi',2],
+          ['Jake Strine','Delhi',2],
+          ['Asterix200','Delhi',2],
+          ['geekyBodhi','Delhi',2],
+          ['cliffcake','Delhi',2],
+          ['Rajesh Khokhar','Delhi',2],
+          ['dhruvsinghal6','Delhi',2],
+          ['Rishijindal','Delhi',2],
+          ['Piyush Madan','Delhi',2],
+          ['ankush sachdeva','Delhi',2],
+          ['Sakthi20','Delhi',2],
+          ['deepak kothiyal','Delhi',2],
+          ['Moonwalker','Delhi',2],
+          ['rishi20','Delhi',2],
+          ['djinn','Delhi',2],
+          ['jasbirkharbanda','Delhi',2],
+          ['_helloworld','Delhi',2],
+          ['Bipinpuri','Delhi',2],
+          ['RCHADHA','Delhi',2],
+          ['nareshgoel16','Delhi',2],
+          ['mkt','Delhi',2],
+          ['vikas kamal','Delhi',2],
+          ['Maarten Deen','Delhi',2],
+          ['ameenkhan07','Delhi',2],
+          ['techlady','Delhi',2],
+          ['vishnunarainsaxena','Delhi',2],
+          ['lxbarth','Delhi',2],
+          ['ircecho','Delhi',2],
+          ['VarunPathak','Delhi',2],
+          ['amansethi008','Delhi',2],
+          ['harshpuri84','Delhi',2],
+          ['cdavila','Delhi',2],
+          ['Jochen Topf','Delhi',1],
+          ['Dima M','Delhi',1],
+          ['Jen Triposo','Delhi',1],
+          ['KHOJ STUDIOS','Delhi',1],
+          ['Tushar Gupta','Delhi',1],
+          ['akasokan','Delhi',1],
+          ['Rub21','Delhi',1],
+          ['saurabhIPhone','Delhi',1],
+          ['Sougata Mondal','Delhi',1],
+          ['Neil Penman','Delhi',1],
+          ['Rajeev shrivastava','Delhi',1],
+          ['shaungs','Delhi',1],
+          ['johnanderson1009','Delhi',1],
+          ['SAHAR4YOU','Delhi',1],
+          ['Mishari','Delhi',1],
+          ['Antheii','Delhi',1],
+          ['sumeetkh','Delhi',1],
+          ['sepich','Delhi',1],
+          ['TomasB','Delhi',1],
+          ['Skal','Delhi',1],
+          ['Prashannajeet Chakraborty','Delhi',1],
+          ['Dwi Secundus','Delhi',1],
+          ['vellatechie','Delhi',1],
+          ['arunkavalam','Delhi',1],
+          ['Head','Delhi',1],
+          ['Petr Dlouhý','Delhi',1],
+          ['Tarun Saxena','Delhi',1],
+          ['souvikdg','Delhi',1],
+          ['Cab Renting1','Delhi',1],
+          ['jyotimann','Delhi',1],
+          ['anishmg','Delhi',1],
+          ['pendethan','Delhi',1],
+          ['Shrey911','Delhi',1],
+          ['soultrailsadventures','Delhi',1],
+          ['updesh_ltcs','Delhi',1],
+          ['gnowgi','Delhi',1],
+          ['John McDouglas','Delhi',1],
+          ['Shubhrasish','Delhi',1],
+          ['vivspoo','Delhi',1],
+          ['ajitakshaya','Delhi',1],
+          ['maper xy','Delhi',1],
+          ['Guttorm Flatabø','Delhi',1],
+          ['flierfy','Delhi',1],
+          ['Skybunny','Delhi',1],
+          ['Rohit Jain @ dwarka','Delhi',1],
+          ['Abhay M','Delhi',1],
+          ['Sabeer Kanwal','Delhi',1],
+          ['DoubleA','Delhi',1],
+          ['Gerhardus Geldenhuis','Delhi',1],
+          ['Markus59','Delhi',1],
+          ['demirhand','Delhi',1],
+          ['Pradeep Sharma','Delhi',1],
+          ['MiBu','Delhi',1],
+          ['aceman444','Delhi',1],
+          ['bvibhav','Delhi',1],
+          ['Safis','Delhi',1],
+          ['gormur','Delhi',1],
+          ['masarap','Delhi',1],
+          ['Lakshmiii','Delhi',1],
+          ['bogomolje','Delhi',1],
+          ['Ankush Goyal','Delhi',1],
+          ['Snoopy88','Delhi',1],
+          ['Poorva','Delhi',1],
+          ['Anand Kumar','Delhi',1],
+          ['sharninder','Delhi',1],
+          ['hotel arjun','Delhi',1],
+          ['Yuriy Varezhkin','Delhi',1],
+          ['Claudius Henrichs','Delhi',1],
+          ['NIIT NFC','Delhi',1],
+          ['ukprivat','Delhi',1],
+          ['Clinton Gladstone','Delhi',1],
+          ['Basstoelpel','Delhi',1],
+          ['Reclus','Delhi',1],
+          ['Brijkishore','Delhi',1],
+          ['Kailas Karthikeyan','Delhi',1],
+          ['Indiasupplement','Delhi',1],
+          ['skorbut','Delhi',1],
+          ['pundit_traveller','Delhi',1],
+          ['maxerickson','Delhi',1],
+          ['v1pl','Delhi',1],
+          ['tbicr','Delhi',1],
+          ['yasobara','Delhi',1],
+          ['NE2','Delhi',1],
+          ['Ramakrishna Mission Delhi','Delhi',1],
+          ['Randyas','Delhi',1],
+          ['ypid','Delhi',1],
+          ['lukas fleischli','Delhi',1],
+          ['JeffH','Delhi',1],
+          ['rahuketu','Delhi',1],
+          ['Raj Jee','Delhi',1],
+          ['Aleks-Berlin','Delhi',1],
+          ['nesan','Delhi',1],
+          ['Ideas Visible','Delhi',1],
+          ['GavinX','Delhi',1],
+          ['mohitbala','Delhi',1],
+          ['akashtaker001','Delhi',1],
+          ['Gopal Kaushik','Delhi',1],
+          ['vishal kapoor 1970','Delhi',1],
+          ['Balamurugan Soundraraj','Delhi',1]
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_divdtree'));
+
+        tree.draw(data, {
+          highlightOnMouseOver: true,
+          maxDepth: 1,
+          maxPostDepth: 2,
+          minHighlightColor: '#fff7fb',
+          midHighlightColor: '#fff7fb',
+          maxHighlightColor: '#fff7fb',
+          minColor: '#ece2f0',
+          midColor: '#67a9cf',
+          maxColor: '#016c59',
+          headerHeight: 45,
+          fontColor: 'black',
+          showScale: false,
+          generateTooltip: showFullTooltip
+        });
+
+        function showFullTooltip(row, size, value) {
+    return '<div style="background:#fff7fb; padding:10px; border-style:solid">' +
+           '<span style="font-family:Helvetica Neue"><b>' + data.getValue(row, 0) +
+           '</b>, '   + '</span><br>' +
+           data.getColumnLabel(2) +
+           ' (all types): ' + size + '<br>' +
+           data.getColumnLabel(1)   + ' </div>';
+  }
+
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["treemap"]});
+      google.setOnLoadCallback(drawChartMtree);
+      function drawChartMtree() {
+        var data = google.visualization.arrayToDataTable([
+          ['Location', 'in Mumbai, years 2007 - 2014', 'POIs Edited'],
+          ['Mumbai', null, 0],
+          ['PlaneMad','Mumbai',330],
+          ['Oberaffe','Mumbai',157],
+          ['MJL Wood','Mumbai',155],
+          ['mikelmaron','Mumbai',28],
+          ['slalani','Mumbai',27],
+          ['singleton','Mumbai',20],
+          ['nirvanareborn','Mumbai',13],
+          ['Nichalp','Mumbai',13],
+          ['ahub','Mumbai',12],
+          ['deye','Mumbai',12],
+          ['xybot','Mumbai',12],
+          ['ShetraPC','Mumbai',12],
+          ['Aamod','Mumbai',10],
+          ['parambyte','Mumbai',9],
+          ['Tronikon','Mumbai',9],
+          ['Matt Daniels','Mumbai',8],
+          ['chandagupta123','Mumbai',7],
+          ['DhruvV','Mumbai',5],
+          ['sachinpilankar','Mumbai',5],
+          ['shaikh nizam','Mumbai',5],
+          ['HiTe','Mumbai',5],
+          ['Havin Jain','Mumbai',5],
+          ['shekhar','Mumbai',4],
+          ['RussNelson','Mumbai',4],
+          ['miurahr','Mumbai',4],
+          ['marek kleciak','Mumbai',4],
+          ['ramrao','Mumbai',3],
+          ['Ponraj Yadavar','Mumbai',3],
+          ['impossible','Mumbai',3],
+          ['Max--','Mumbai',3],
+          ['cgu66','Mumbai',3],
+          ['SusaninM','Mumbai',3],
+          ['KamleshVikamsey','Mumbai',3],
+          ['vranjan','Mumbai',3],
+          ['rajasurdas','Mumbai',3],
+          ['Mazacar','Mumbai',3],
+          ['the100rabh','Mumbai',3],
+          ['kuass','Mumbai',3],
+          ['Patuck','Mumbai',3],
+          ['Louise Belcher','Mumbai',3],
+          ['Shahidt','Mumbai',3],
+          ['BuganiniQ','Mumbai',3],
+          ['indiajoe','Mumbai',3],
+          ['anjana es','Mumbai',3],
+          ['rohitmehta','Mumbai',2],
+          ['antblant','Mumbai',2],
+          ['shaikh mohammed zaid','Mumbai',2],
+          ['Gautamdengle','Mumbai',2],
+          ['gnowgi','Mumbai',2],
+          ['YOz','Mumbai',2],
+          ['Safis','Mumbai',2],
+          ['Mahafreed','Mumbai',2],
+          ['Moorthy1','Mumbai',2],
+          ['Claudius Henrichs','Mumbai',2],
+          ['Jason Haines','Mumbai',2],
+          ['khanaklima','Mumbai',2],
+          ['Sushant','Mumbai',2],
+          ['fatima sayyed','Mumbai',2],
+          ['JJ21','Mumbai',1],
+          ['Asterix200','Mumbai',1],
+          ['pradx','Mumbai',1],
+          ['anonymousdisplay','Mumbai',1],
+          ['ashwinimoti','Mumbai',1],
+          ['shagufta','Mumbai',1],
+          ['MOHD AAMIR','Mumbai',1],
+          ['IndiaPress','Mumbai',1],
+          ['Rohan_R','Mumbai',1],
+          ['Moin','Mumbai',1],
+          ['Geogast','Mumbai',1],
+          ['masarap','Mumbai',1],
+          ['joost schouppe','Mumbai',1],
+          ['bigboss','Mumbai',1],
+          ['FrViPofm','Mumbai',1],
+          ['androidessenrfid','Mumbai',1],
+          ['neelam021996','Mumbai',1],
+          ['Ashutosh Gupta','Mumbai',1],
+          ['JediKnut','Mumbai',1],
+          ['gormur','Mumbai',1],
+          ['seemadhadam','Mumbai',1],
+          ['Warren Noronha','Mumbai',1],
+          ['farhatjahan','Mumbai',1],
+          ['mtmail','Mumbai',1],
+          ['HHCacher','Mumbai',1],
+          ['NightHawk3614','Mumbai',1],
+          ['bluesmoon','Mumbai',1],
+          ['a2bucks','Mumbai',1],
+          ['Giyavudeen','Mumbai',1],
+          ['khuzefa','Mumbai',1],
+          ['mayurivasudevan','Mumbai',1],
+          ['Niketa Pillai','Mumbai',1],
+          ['Hemant_m','Mumbai',1],
+          ['komal mhapankar','Mumbai',1],
+          ['Hrush','Mumbai',1],
+          ['Shiva338','Mumbai',1],
+          ['Taiseen khan','Mumbai',1],
+          ['saravbhatia','Mumbai',1],
+          ['lucky sandy','Mumbai',1],
+          ['yog_rai','Mumbai',1],
+          ['premal','Mumbai',1],
+          ['palolem','Mumbai',1],
+          ['Stiev Severecci','Mumbai',1]
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_divmtree'));
+
+        tree.draw(data, {
+          highlightOnMouseOver: true,
+          maxDepth: 1,
+          maxPostDepth: 2,
+          minHighlightColor: '#fff7fb',
+          midHighlightColor: '#fff7fb',
+          maxHighlightColor: '#fff7fb',
+          minColor: '#ece2f0',
+          midColor: '#67a9cf',
+          maxColor: '#016c59',
+          headerHeight: 45,
+          fontColor: 'black',
+          showScale: false,
+          generateTooltip: showFullTooltip
+        });
+
+        function showFullTooltip(row, size, value) {
+    return '<div style="background:#fff7fb; padding:10px; border-style:solid">' +
+           '<span style="font-family:Helvetica Neue"><b>' + data.getValue(row, 0) +
+           '</b>, '   + '</span><br>' +
+           data.getColumnLabel(2) +
+           ' (all types): ' + size + '<br>' +
+           data.getColumnLabel(1)   + ' </div>';
+  }
+
+      }
+    </script>
+
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">India-data-analysis</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/IndyHurt/india-data-analysis" class="btn">View on GitHub</a>
+      <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/data" class="btn">Download Data</a>
+      <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql" class="btn">View Queries</a>
+    </section>
+
+    <section class="main-content">
+      
+
+<p>Data analysis means many thing to many people, but revealing trends and assessing quality are common goals.  Map data can contain many types of features worth investigating, and how features are evaluated may vary based on how they will be used.  <a href="http://www.openstreetmap.org">OpenStreetMap</a> data ranges in complexity due to the diversity of editors and the diversity of features they contribute.  Reviewing a few cities in India demonstrates a bit of this complexity.</p>  
+
+<p>Read through for context or jump around to see how <a href="#evaluateOSM">others are evaluating OpenStreetMap data</a>, how <a href="#community">community and quality are related</a>, why <a href="#india">India is interesting</a> and methodology details, along with the specifics of <a href="#roads">roads</a>, <a href="#buildings">buildings</a>, and <a href="#pois">points of interest</a> in Bengaluru, Delhi, and Mumbai with links to all the queries and data used to generate a series of charts.</p>
+
+<h3>
+<a id="dataquality101" class="anchor" href="#dataquality101" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Quality 101</h3>
+
+<p> When measuring data quality, what exactly does that mean?  One may try to formulate quantitative measures that characterize data as superior, complete, accurate, consistent, and current.  Additional measurements may focus on documentation and source evaluation with respect to the reputation or authoritative nature of the data provider. </p>
+
+<p>	The original purpose of data collection and the original reference scale at which data was collected may also have bearing on the utility of the data for purposes beyond its original intent.  With this in mind, data quality may be measured for specific use cases.  For spatial data, a few examples include routing, search, and cartographic rendering. </p>
+
+<h3>
+<a id="evaluateOSM" class="anchor" href="#evaluateOSM" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluating OpenStreetMap Data Quality</h3>
+
+<p>In recent years, researchers have developed a number of techniques to assess OpenStreetMap data quality.  Analysis of the road network is common, but others have focused on other features like buildings [<a href="#r1">1</a>].  While several [<a href="#r2">2-6</a>] measure characteristics of OpenStreetMap data against authoritative sources, others take a community approach by evaluating the community of editors [<a href="#r7">7-9</a>].  In many of these studies, the heterogeneity of OpenStreetMap data is described as a difficult characteristic to address in order to effectively compare it to any other data source.  In actuality, this is the case even when comparing OpenStreetMap data to itself, but it should not be thought of as a weakness.</p>  
+
+<p>In addition to the common features found in all basemaps databases, OpenStreetMap has many additional types of features that cannot be found anywhere else.  This is the result of the <a href="http://wiki.openstreetmap.org/wiki/Tags">tag</a> system of key value pairs inherent in the data model.  Tags allows mappers to add virtually anything they can think of, and new tags can be created at any time.  Some examples include garden types, piste (ski run) types, water slides, individual playground equipment, memorial benches along hiking trails, and the list goes on and on.  While the ability to add new tags at any time allows for rich content, it can also make categorizing features difficult when similar features are tagged differently.</p>
+
+<p>Complementing the various OpenStreetMap research efforts that have been published in peer reviewed journals, code repositories featuring OpenStreetMap data analysis tools are available from a number of contributors.  In this space, find:</p>
+
+<p>
+<ul>
+  <li><a href="https://github.com/zehpunktbarron/iOSMAnalyzer">iOSMAnalyzer</a>: a python tool to generate data quality reports utilizing <a href="https://github.com/joto/osmium">Osmium</a>, <a href="https://github.com/MaZderMind/osm-history-splitter">OSM-History-Splitter</a>, <a href="https://github.com/MaZderMind/osm-history-renderer">OSM-History-Render/Importer</a> and <a href="http://matplotlib.org">MatplotLib</a> for visualizing statistics.  
+  <li>For tile based analysis, <a href="https://www.mapbox.com">Mapbox</a> offers <a href="http://osmlab.github.io/osm-qa-tiles/">OSM QA tiles</a> to evaluate the current OpenStreetMap data.  
+  <li>Find also nearly two dozen OpenStreetMap data quality checks, written in Perl by <a href="http://wiki.openstreetmap.org/wiki/User:Gary68">Gerhard Gary68</a>.  
+  <li>Try <a href="http://keepright.at">Keep Right</a> for visualizing programmatically detected errors. 
+  <li><a href="http://osmose.openstreetmap.fr/en/map/">Osmose</a> also employs programmatic error detection and provides editing tools. 
+  <li><a href="http://maproulette.org">MapRoulette</a> is another successful project built around challenges submitted to fix themes of programmatically detected errors.</ul>  
+
+<p>The subset of tools mentioned here demonstrates the commitment the OpenStreetMap community has towards building the best map possible.</p>
+
+<h3>
+<a id="community" class="anchor" href="#community" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community and Quality</h3>
+
+<p>The relationship between community and quality is fascinating.  OpenStreetMap data quality clearly benefits from an extensive community of editors.  It is easy to imagine why this might be the case.  More contributors leads to more content, and faster corrections when errors arise, including examples of vandalism like the introduction of <a href="https://lists.openstreetmap.org/pipermail/talk-us/2015-September/015321.html">fictional data</a> or the inappropriate deletion of existing data [<a href="#r10">10</a>].</p>  
+
+
+<h3>
+<a id="india" class="anchor" href="#india" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characteristics of Bengaluru, Delhi, and Mumbai</h3>
+
+<p>With one of the fastest growing economies, and a steady rise in smartphone use, mobile maps are expected to play an important role in India.  According to <a href="http://www.internetlivestats.com/internet-users/india/">internet live stats</a>, 19% of India's population had access to the Internet in 2014.  Smartphone use was estimated at 10% of the population for 2014 by <a href="http://www.statista.com/statistics/321487/smartphone-user-penetration-in-india/">Statista</a>, and there are several indicators that these numbers will continue rise.</p> 
+
+<p>What is happening in the world of OpenStreetMap edits for India?  Here is a first look at Bengaluru, Delhi, and Mumbai with links to all queries used to generate the results presented in this blog post.</p>  
+
+<figure>
+  <img src="maps/locator_map.gif" alt="Locator Map"/>
+  <figcaption>Locator map courtesy of <a href="https://github.com/nvkelso">Nathaniel Vaughn Kelso</a>.</figcaption>
+</figure>  
+
+<p>More about the OpenStreetMap data and how it was prepared for analysis:</p>
+
+<p>The <a href="http://wiki.openstreetmap.org/wiki/Planet.osm/full">full history dump</a> of all OSM data under the ODbL license is published every Wednesday.  As of this writing, the data is available as a 68 GB XML file, or a 47 GB PBF file.  With one of these files, OSM History Splitter was used to split the data into smaller, manageable extracts for Bengaluru, Delhi, and Mumbai.  From there, Osmium Time Filter was used to generate a snapshot in time for each year of interest, capturing all data that <b>intersected</b> a bounding box.  Those bounding boxes are as follows:</p>
+
+
+<TABLE BORDER="1" CELLSPACING="1" CELLPADDING="1">
+<TR>
+<TD ALIGN ="center"> City </TD>
+<TD ALIGN ="center"> Bengaluru </TD>
+<TD ALIGN ="center"> Delhi </TD>
+<TD ALIGN ="center"> Mumbai </TD>
+</TR> 
+
+<TR>
+<TD ALIGN ="center"> Bounding Box </TD> 
+<TD ALIGN ="center"> 77.470261, 12.83296, 77.743858, 13.19844 </TD>
+<TD ALIGN ="center"> 76.83831, 28.404181, 77.343689, 28.88382 </TD>
+<TD ALIGN ="center"> 72.790878, 18.878559, 72.893707, 19.05402 </TD>
+</TR>
+
+<TR>
+<TD ALIGN ="center"> Source </TD>
+<TD ALIGN ="center"> <a href="http://isithackday.com/geoplanet-explorer/index.php?woeid=2295420">woeid 2295420</a> </TD>
+<TD ALIGN ="center"> <a href="http://isithackday.com/geoplanet-explorer/index.php?woeid=2295019">woeid 2295019</a> </TD>
+<TD ALIGN ="center"> <a href="http://isithackday.com/geoplanet-explorer/index.php?woeid=12586539">woeid 12586539</a> </TD>
+</TR>
+
+</TABLE>
+<p>The data was then imported into a PostgreSQL database with <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql">osm2pgsql</a> using the same bounding boxes above to <b>clip</b> the data to those extents.  Each year is an accumulation of all prior years, and only the most recent feature is present in the data.  User names, version numbers, and timestamps were also imported with the help of osm2pgsql's <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql#Special_.27tags.27">"extra attributes"</a> option.</p>
+
+<p>With everything involved, it is a lot to install and configure.  To make things easier, particularly since there are no pre-compiled packages available for Mac OS X where I do all of my analysis, <a href="https://github.com/zerebubuth">Matt Amos</a> put together a linux virtual machine with the tools necessary to run the history splitter and time filter.  To make it easier to reproduce this environment, he also provided a <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/vagrant/Vagrantfile_HistoryTools">vagrant file</a>.  The key to success is accessing a full history dump from a shared folder to get around space limitations within the virtual machine.</p>  
+
+<p>And now, on to the results of the analysis:</p>
+
+<h4>
+<a id="roads" class="anchor" href="#roads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Roads</h4>
+
+<p>Starting with the kilometers of road, Bengaluru and Delhi have been increasing over time.  Mumbai has been relatively stable, but digging a little deeper reveals some interesting details presented below.</p>
+
+<div id="curve_chart" style="width: 900px; height: 500px"></div>
+
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L1-L5">example query</a> for this chart.</p>
+
+<p>NOTE: <font size ="2">In some cases, it is advantageous to include the relations in the calculations, but for simplicity, relations have not been included for this pass because they often duplicate length and/or area.  Additionally, all road calculations presented here do not account for the presence or absence of dual carriageways.</font></p> 
+
+<div id="chart_divpc" style="width: 900px; height: 500px;"></div>
+
+<p>By 2007, Bengaluru had 38 kilometers of road and Delhi had 48 kilometers of road.  Mumbai's first roads were added in 2008.  The percent increase of kilometers of road from one year to the next is positive in every year for Bengaluru and Delhi.  In fact, the percent increase for Bengaluru and Delhi is quite literally "off the chart" due to the incredible amount of growth between 2007 and 2008.  Mumbai sees a few years of negative growth or nearly no growth at all, meaning that Mumbai's debute year for roads was followed by relatively consistent editing in subsequent years.</p>  
+
+<p>Consider that this percent growth chart is just for kilometers of roads.  Enhancements could still be happening in the form of additional tags added to existing road segments.  In reality, there are only so many roads in each city.  For this reason, the kilometers of road cannot continue to increase indefinitely.  At some point, percent increase should decline.  It is also worth noting that Mumbai is surrounded by water on most sides, is roughly the same size as Bengaluru, yet only half the size of Delhi.</p>    
+  
+<p>While coverage, or in this case the accumulation of kilometers, is important, additional attributes can reveal valuable details about the type of editing taking place in these areas over the last 8 years.  Surveying the data for evidence of local knowledge often yields fuzzy results, but populated tags and enhancement to geometries can still be extracted.</p>  
+
+<p>Many types of enhancements would not easily be possible for editors relying solely on aerial imagery while participating in <a href="http://wiki.openstreetmap.org/wiki/Armchair_mapping">arm chair mapping</a>.  Two examples below include road features with names and road features with oneway designations.  In some parts of the world, the line type visible in aerial imagery helps identify a oneway road, but this isn't a global standard, and this technique of identifying road type requires relatively high resolution aerial imagery.  With respect to names, this is where Mumbai shines.  The total accumulated kilometers of road may be small in comparison to Bengaluru and Delhi, but the percentage of Mumbai roads with names is quite high.</p>
+
+<p>Should it be 100%?  Actually, no, not in many dense urban areas in India.  There are many areas that rely more heavily on place names associated with residential sectors and landmarks.  Of course that means it is very important to have the residential sectors and landmarks in the data.</p>  
+
+<div id="curve_chart2" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L7-L11">example query</a> for this chart.</p>
+
+<div id="curve_chartOneways" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L21-L25">example query</a> for this chart.</p>
+
+
+<p>There is an interesting relationship between kilometers of road edited and the number of segments edited.  In years 2008 through 2014, the number of edits to existing features outpaces the addition of new features in nearly every year for Bengaluru and Delhi.  Mumbai is doing its own thing and needs further investigation, but <a href="https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap#The_Switch_to_API_0.6_and_the_explosion_of_User_Growth">API changes</a> might give us some insight.</p>
+
+<p>With the number of segments rising faster than the number of kilometers in Bengaluru and Delhi, we are seeing a trend towards smaller segments or segmentation of larger features.  This makes sense, and is even visually identifiable in this time series for Delhi.</p>  
+
+<figure>
+  <img src="maps/delhi_time_series.gif" alt="Delhi Roads Time Series"/>
+  <figcaption>Time series visualization courtesy of <a href="https://github.com/nvkelso">Nathaniel Vaughn Kelso</a></figcaption>
+</figure>
+
+<p>When editors are faced with a blank canvas, the long easy highways are the low hanging fruit.  A shift towards smaller segments over time likely indicates an increase in detail, and this is good!  A community of editors is taking the time to fill in the gaps.</p>  
+
+<p>The graphics below show stacked bar charts for the kilometers of edits to new and existing roads each year overlaid with dotted line charts representing the number of road segments edited each year.  New roads verses existing roads is an approximation derived from version numbers.  Same data, two views, and each year is an accumulation of prior years.</p>
+
+<p>Pairing the version numbers with the timestamps would allow us to identify how new or how stale a feature really is, and this is an extra step we plan to tackle in the future.</p> 
+
+<div id="chart_divbre" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divdrs" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divmrs" style="width: 900px; height: 500px;"></div>
+
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L13-L19">example query</a> for the segments added to these charts.</p>
+
+<h4>
+<a id="buildings" class="anchor" href="#buildings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildings</h4>
+
+<p>Taking a look at buildings, it was a slow start for all three cities until 2009 when editing begins to become more apparent.  Interestingly, Mumbai has a noticiable dip in 2012, while upward momentum skips a beat for Bengaluru and Delhi that year, too.  <a href="http://wiki.osmfoundation.org/wiki/License/We_Are_Changing_The_License">License changes</a> are likely at work here.</p>
+
+<div id="curve_chartBuildingCount" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L33">example query</a> for this chart.</p>
+
+<p>In additional to overall coverage, there are a number of tags that add value to buildings.  Examples include names, address information, type, and height.  While aerial imagery can be used to digitize building footprints, the added value of additional attributes often comes from local knowledge.</p>  
+
+<p>The charts below break down the distribution of buildings with and without address information, along with the total area.  The address information comes from two sources: tags on the buildings, and points with address tags that intersected the buildings.  In all cases, there are very few full addresses.  The query built to extract this information is very generous and tallies anything with a populated address field.</p>
+
+<div id="chart_divbb" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divdb" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divmb" style="width: 900px; height: 500px;"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L35-L45">example query</a> for these charts.</p>
+
+<p>Is this count precise?  No.  The queries focus entirely on polygons that have been tagged with the building key.  It is entirely possible to digitize a building footprint, and tag it with a different key and value.  This is apparent in the data when reviewing names that are clearly associated with buildings yet the building key is not populated.  Overall, buildings that are not tagged as buildings are a small subset.  In addition to names that can give us clues about features that are not tagged in a conventional way, an exhaustive evaluation of all tags in the <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql#hstore">hstore</a> would intentify all kinds of interesting features and additional attributes.</p>
+
+<h4>
+<a id="topology" class="anchor" href="#topology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topological Relationships</h4>
+
+<p>A comprehensive analysis of data quality would include accuracy assessments.  By the end of 2014, Bengaluru had 4,541 buildings, but how many of these polygons are accurate?  Some of these polygons could very well be missinterpretations of aerial imagery, but it would take a party of ground truth observers to verify.</p>  
+
+<p>Without ground truth expeditions, we can look to topological relationships for some features that need further investigation.  With respect to buildings, we can calculate the length of road that intersects with buildings.  In these cases, either the building or the road may be in the wrong location.  With Halloween just around the corner, a covered bridge inadvertantly tagged as a building might be an exception <a href="https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow">Icabod Crane</a> would appreciate, but these aren't a common occurance in India.</p>
+
+<p>Queries reveal interesting results for the kilometers of roads intersected by buildings in Bengaluru, Delhi, and Mumbai. Mumbai stays low over time, Bengaluru seems to be approaching a level of concern because buildings intersecting roads is atypical in the real world, and then there's Delhi on a roller coaster ride!  It's cases like these that highlight an active community.  Something was likely very wrong, and it got corrected.  With any measurement, the analysis is incomplete without visualizing the actual geometries.  While these types of intersections may appear to be accumulating in Delhi, it is possible that they are all valid.</p>
+
+<div id="curve_chartBRoadIntersections" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L69-L71">example query</a> for this chart.</p>  
+
+<p>Are the remaining intersections between buildings and roads equally problematic?  It depends entirely on the mapping application, and a break down of intersections by type can be used to evaluate the visual impact these features may have on rendering.  In the case of these three cities, the primary and secondary roads are fairly clear of intersections with buildings.  The bulk of the issues occur with the residential and service roads.  For general definitions for these road types, see the <a href="https://wiki.openstreetmap.org/wiki/Map_Features#Highway">OpenStreetMap wiki</a>.</p>
+
+<div id="chart_divbrti" style="width: 900px; height: 500px"></div>
+
+<div id="chart_divdrti" style="width: 900px; height: 500px"></div>
+
+<div id="chart_divmrti" style="width: 900px; height: 500px"></div>
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L73-L101">example query</a> for these charts.</p>
+
+<h4>
+<a id="pois" class="anchor" href="#pois" aria-hidden="true"><span class="octicon octicon-link"></span></a>Points of Interest</h4>
+
+<p>Points of interest are much easier to add once the roads are in place.  They are comprised of things you might search for while using the map.  Examples include businesses, parks, schools, airports, and many others.  For Bengaluru and Delhi, road edits start to gain momentum in 2009 followed by buildings in 2010 and 2011 for all three cities.  Points of interest begin to gain momentum in 2010 and 2011 as well.</p>  
+
+<div id="curve_chartPOICount" style="width: 900px; height: 500px"></div>
+
+<p>A point of interest (or POI) is stationary, can have many attributes, and may be paired with an associated polygonal feature.  There are many types of POIs so we have chosen to look at a subset comprised as those with populated aeroway, amenity, barrier, highway, historic, leisure, man made, natural, railway, shop, tourism, or waterway tags.</p>  
+
+<p>Bengaluru has significantly more POIs when compared to Delhi and Mumbai, but the distribution of what is being added is quite similar across all cities.  It is helpful to remember that these types are not necessarily mutually exclusive.  It is very likely that many of the shop POIs also have an amenity tag.</p>
+
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_div2" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_div3" style="width: 900px; height: 500px;"></div>
+
+<h4>
+<a id="poi_editors" class="anchor" href="#poi_editors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Editors and Points of Interest</h4>
+
+<p>Since the osm_user tag was brought in during the osm2pgsql process, we can identify the cumulative number of POIs attributed to each editor at the end of any given year where the edits represent the last edit for any given feature.  There are many editors that can only claim one POI by this measure, while the bulk of the features were contributed by a small group of editors.  This is the classic long tail distribution characteristic of many crowd sourced datasets.  Seeing all of the osm_user names is a window into the community.  The high percentage of Indian names is hopefully an indicator of local knowledge.</p>
+
+<div id="chart_divbtree" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divdtree" style="width: 900px; height: 500px;"></div>
+
+<div id="chart_divmtree" style="width: 900px; height: 500px;"></div>
+
+<p align=center style="font-size:14px; background-color:#f0ebeb;">See <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql#L143-L160">example query</a> for these charts.</p>
+
+<p>These types of visualizations also highlight variations in editor preferences.  The top contributors of POIs will not necessarily match the top contributors of roads or buildings.  Editors tend to favor specific types of features [<a href="#r8">8</a>].</p>
+
+<p><b>So what have we discovered?</b></p>
+
+<p>OpenStreetMap editors are making contributions in Bengaluru, Delhi, and Mumbai!  Bengaluru is outpacing Delhi and Mumbai for roads, buildings, and points of interest, but a stream of editors are active across all three cities.  Looking back through the years, a simple investigation of roads intersecting buildings tells a community story.  In most cases, buildings should not intersect roads.  When Delhi saw a spike in intersections, it was corrected.  Further investigations could be revealing.  Was vandalism at play?  Were features incorrectly tagged?  Did a large import take place that year?</p>  
+
+<p>Overall, OpenStreetMap in India may still have a long way to go.  To really quantify the details, it is necessary to know how many kilometers of road there <i>should</i> be.  According to <a href="https://www.cia.gov/library/publications/the-world-factbook/rankorder/2085rank.html">The World Factbook</a>, India had 4,689,842 kilometers of road in 2013.  There may be local sources for the states and union territories to help break this number down. How many buildings should there be?  How many points of interest are expected, and how close is OpenStreetMap to reaching those numbers?   
+
+<h3>
+<a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h3>
+
+<p>Why aren't more people analyzing the OSM history?  It may have something to do with the difficulty of managing such a large dataset or the requirements of the tools needed to load the data into a database. Unlike the planet file that contains only the last edited version of every feature in OpenStreetMap, the history contains all versions and tools like osm2pgsql are not designed to load multiple versions of features.  There are a few history tools available and they have been highlighted in this blog post.  Most of them would run natively on OS X, and some on Windows, too.  Unfortunately they do not have installers for OS X or Windows which makes them difficult to install.</p>  
+
+<p>To make the current OpenStreetMap data more accessible and manageable, Mapzen offers <a href="https://mapzen.com/data/metro-extracts/">Metro Extracts</a>, and they are quite popular.  If historical metro extracts were available, would they also be popular?  For starters, the historical OpenStreetMap data for the three cities featured in this blog post are available <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/data">here</a> and <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/osm-analysis.sql">individual queries</a> or <a href="https://github.com/IndyHurt/india-data-analysis/blob/gh-pages/queries/create-results-table.sql">sql to generate a table of select results</a> are also in the repository for this blog post.</p>
+
+<p>In addition to making the data more accessible, we need a flexible framework for data quality reporting.  The assortment of stats presented here are just the tip of the iceberg and we will include the additional pre ODbL <a href="http://wiki.openstreetmap.org/wiki/Legal_FAQ/CC-BY-SA_Archive">CC-BY-SA</a> data in the future to really present the full picture.</p>  
+
+<p>Any analysis of OpenStreetMap should incorporate a measure of the data, and a measure of the community.  A snapshot in time cannot capture everything we want to know about the data in the same way a snapshot communicates for other data sources because OpenStreetMap data is far more dynamic and heterogeneous than anything we might try to compare it to.  The history is just as relevant as where the data stands today and the history presents clues to what can be expected in the future.<p>  
+
+
+<h3>
+<a id="biblio" class="anchor" href="#biblio" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h3>
+
+<p>
+<ol>
+<li><a id="r1"></a>Fan, H., et al., <i>Quality assessment for building footprints data on OpenStreetMap.</i> International Journal of Geographical Information Science, 2014. <b>28</b>(4): p. 700-719.</li>
+<li><a id="r2"></a>Kounadi, O., <i>Assessing the quality of OpenStreetMap data, in Department of Civic, Environmental And Geomatic Engineering.</i> 2009, University College of London. p. 80.</li>
+<li>Haklay, M., <i>How Good is Volunteered Geographical Information? A Comparative Study of OpenStreetMap and Ordnance Survey Datasets.</i> Environment and Planning B: Planning and Design, 2010. <b>37</b>(4): p. 682-703.</li>
+<li>Ather, A., <i>A Quality Analysis of OpenStreetMap Data,</i> in <i>Department of Civil, Environmental &amp; Geomatic Engineering.</i> 2009, University College London. p. 81.</li>
+<li>Haklay, M., et al., <i>How Many Volunteers Does it Take to Map an Area Well? The Validity of Linus’ Law to Volunteered Geographic Information.</i> The Cartographic Journal, 2010. <b>47</b>(4): p. 315-322.</li>
+<li>Girres, J.-F. and G. Touya, <i>Quality Assessment of the French OpenStreetMap Dataset.</i> Transactions in GIS, 2010. <b>14</b>(4): p. 435-459.</li>
+<li><a id="r7"></a>Neis, P. and A. Zipf, <i>Analyzing the Contributor Activity of a Volunteered Geographic Information Project — The Case of OpenStreetMap.</i> ISPRS International Journal of Geo-Information, 2012. <b>1</b>(2): p. 146.</li>
+<li><a id="r8"></a>B&eacute;gin, D., R. Devillers, and S. Roche, <i>Assessing Volunteered Geographic Information (VGI) Quality Based on Contributors' Mapping Behaviours.</i> International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, 2013. <b>XL-2/W1</b>: p. 6.</li>
+<li>Mooney, P. and P. Corcoran, <i>Characteristics of Heavily Edited Objects in OpenStreetMap.</i> Future Internet, 2012. <b>4</b>(1): p. 285.</li>
+<li><a id="r10"></a>Neis, P., M. Goetz, and A. Zipf, <i>Towards Automatic Vandalism Detection in OpenStreetMap.</i> ISPRS International Journal of Geo-Information, 2012. <b>1</b>(3): p. 315.</li>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/IndyHurt/india-data-analysis">India-data-analysis</a> is maintained by <a href="https://github.com/IndyHurt">IndyHurt</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
